@@ -459,5 +459,156 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(observeFade, 200);
 });
 </script>
+
+<style>
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;opacity:0;pointer-events:none;transition:0.3s;backdrop-filter:blur(4px)}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.95);width:90%;max-width:520px;max-height:90vh;overflow-y:auto;background:#fff;z-index:201;opacity:0;pointer-events:none;transition:0.3s;padding:40px}
+.modal.show{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
+.modal h2{font-size:22px;margin-bottom:8px}
+.modal .close-btn{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:#f5f5f5;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.modal .order-info{background:#f9f9f9;padding:16px;border-radius:8px;margin:16px 0}
+.modal .order-info .row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px}
+.modal .order-info .row.total{border-top:2px solid #ddd;margin-top:6px;padding-top:10px;font-weight:700;font-size:16px}
+.modal .usdt-box{background:#0a0a0a;color:#fff;padding:20px;border-radius:8px;text-align:center;margin:16px 0}
+.modal .usdt-box .address{font-family:monospace;font-size:12px;word-break:break-all;background:rgba(255,255,255,0.1);padding:12px;border-radius:6px;margin:10px 0;color:#ccc}
+.modal .usdt-box .copy-btn{padding:8px 20px;background:#c9a96e;border:none;color:#fff;cursor:pointer;border-radius:4px;font-size:12px;margin-top:8px}
+.modal .form-group{margin-bottom:14px}
+.modal .form-group label{display:block;font-size:12px;font-weight:600;margin-bottom:4px;color:#555}
+.modal .form-group input,.modal .form-group textarea{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:inherit;outline:none}
+.modal .form-group textarea{height:60px}
+.modal .btn-submit{width:100%;padding:14px;background:#dc2626;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;font-weight:600}
+.modal .btn-submit:hover{background:#991b1b}
+.step{display:none}.step.show{display:block}
+</style>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="modal" id="checkoutModal">
+  <button class="close-btn" onclick="closeModal()">✕</button>
+  <div class="step show" id="step1">
+    <h2>Confirm Your Order</h2>
+    <div class="order-info" id="orderSummary"></div>
+    <p style="font-size:12px;color:#888;margin-bottom:12px">Free shipping worldwide. Pay with USDT (TRC-20).</p>
+    <button class="btn-submit" onclick="goStep2()">PLACE ORDER</button>
+  </div>
+  <div class="step" id="step2">
+    <h2>Pay with USDT</h2>
+    <div class="order-info" id="orderSummary2"></div>
+    <div class="usdt-box">
+      <div style="font-size:12px;margin-bottom:8px;color:#c9a96e">Send exact amount to:</div>
+      <div class="address" id="usdtAddress">TBYW6pAE3JTpGvd4GdAyph3oLWo12ogQ3e</div>
+      <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+      <div style="margin-top:12px;font-size:11px;color:#888">Network: <strong style="color:#fff">TRC-20</strong></div>
+    </div>
+    <div style="text-align:center;padding:12px;background:#fff3cd;border-radius:6px;margin:12px 0;font-size:12px;color:#856404">After payment, fill in your shipping details</div>
+    <button class="btn-submit" onclick="goStep3()" style="background:#c9a96e">I PAID - FILL SHIPPING</button>
+  </div>
+  <div class="step" id="step3">
+    <h2>Shipping Details</h2>
+    <div class="form-group"><label>Full Name</label><input type="text" id="shipName" placeholder="John Smith"></div>
+    <div class="form-group"><label>Email</label><input type="email" id="shipEmail" placeholder="john@email.com"></div>
+    <div class="form-group"><label>Phone / WhatsApp</label><input type="text" id="shipPhone" placeholder="+1 123 456 7890"></div>
+    <div class="form-group"><label>Country</label><input type="text" id="shipCountry" placeholder="United States"></div>
+    <div class="form-group"><label>Address</label><textarea id="shipAddress" placeholder="Street, City, State, ZIP"></textarea></div>
+    <div class="form-group"><label>Transaction ID</label><input type="text" id="txid" placeholder="Paste TXID"></div>
+    <button class="btn-submit" onclick="submitOrder()">SUBMIT ORDER</button>
+  </div>
+  <div class="step" id="step4">
+    <div style="text-align:center;padding:20px 0">
+      <div style="font-size:48px;margin-bottom:16px">✓</div>
+      <h2>Order Submitted!</h2>
+      <p style="font-size:14px;color:#888;margin:12px 0">We will process within 24 hours.</p>
+      <button class="btn-submit" onclick="closeModal()" style="background:#1a1a1a">DONE</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const USDT_ADDR = "TBYW6pAE3JTpGvd4GdAyph3oLWo12ogQ3e";
+let currentProduct = null;
+let currentPrice = 0;
+
+// Patch buy buttons to open modal
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('.btn-add');
+  if(!btn) return;
+  var card = btn.closest('.product-card');
+  if(!card) return;
+  var name = card.querySelector('h3').textContent;
+  var priceText = card.querySelector('.price').textContent;
+  var price = parseFloat(priceText.replace('$',''));
+  currentProduct = name;
+  currentPrice = price;
+  document.getElementById('orderSummary').innerHTML = '<div class=\"row\"><span>'+name+'</span><span>$'+price+'</span></div><div class=\"row total\"><span>Total</span><span>$'+price+'</span></div>';
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('show')});
+  document.getElementById('step1').classList.add('show');
+  document.getElementById('checkoutModal').classList.add('show');
+  document.getElementById('modalOverlay').classList.add('show');
+});
+
+function goStep2(){
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('show')});
+  document.getElementById('step2').classList.add('show');
+  document.getElementById('orderSummary2').innerHTML = '<div class=\"row\"><span>'+currentProduct+'</span><span>$'+currentPrice+'</span></div><div class=\"row total\"><span>Total</span><span>$'+currentPrice+'</span></div>';
+}
+
+function goStep3(){
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('show')});
+  document.getElementById('step3').classList.add('show');
+}
+
+function copyAddress(){
+  var ta = document.createElement('textarea');
+  ta.value = USDT_ADDR; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+  var btn = document.querySelector('.copy-btn'); btn.textContent = 'Copied!'; setTimeout(function(){btn.textContent='Copy Address'},2000);
+}
+
+function submitOrder(){
+  var name = document.getElementById('shipName').value.trim();
+  var email = document.getElementById('shipEmail').value.trim();
+  var phone = document.getElementById('shipPhone').value.trim();
+  var country = document.getElementById('shipCountry').value.trim();
+  var address = document.getElementById('shipAddress').value.trim();
+  var txid = document.getElementById('txid').value.trim();
+  if(!name||!email||!phone||!country||!address){alert('Please fill all fields');return;}
+  
+  var order = {
+    id: Date.now().toString(36).toUpperCase(),
+    date: new Date().toISOString(),
+    product: currentProduct, price: currentPrice,
+    usdtAddress: USDT_ADDR, txid: txid||'Pending',
+    customer: {name:name, email:email, phone:phone, country:country, address:address},
+    notes: document.getElementById('shipNotes')?document.getElementById('shipNotes').value:'',
+    status: 'Pending (awaiting payment confirmation)'
+  };
+  
+  var orders = JSON.parse(localStorage.getItem('laserpro_orders')||'[]');
+  orders.push(order);
+  localStorage.setItem('laserpro_orders', JSON.stringify(orders));
+
+  // Email notification
+  var fd = new FormData();
+  fd.append('Order ID', order.id); fd.append('Product', order.product);
+  fd.append('Price', '$'+order.price); fd.append('Name', order.customer.name);
+  fd.append('Email', order.customer.email); fd.append('Phone', order.customer.phone);
+  fd.append('Country', order.customer.country); fd.append('Address', order.customer.address);
+  fd.append('TXID', order.txid);
+  var x = new XMLHttpRequest();
+  x.open('POST', 'https://formspree.io/f/xkgnzkkv', true);
+  x.setRequestHeader('Accept', 'application/json');
+  x.send(fd);
+
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('show')});
+  document.getElementById('step4').classList.add('show');
+}
+
+function closeModal(){
+  document.getElementById('checkoutModal').classList.remove('show');
+  document.getElementById('modalOverlay').classList.remove('show');
+  ['shipName','shipEmail','shipPhone','shipCountry','shipAddress','txid','shipNotes'].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.value='';
+  });
+}
+</script>
 </body>
 </html>
