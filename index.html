@@ -9,6 +9,7 @@
 body{font-family:'Inter','Helvetica Neue',sans-serif;color:#111;background:#fafafa;overflow-x:hidden}
 :root{--red:#dc2626;--red-dark:#991b1b;--dark:#0a0a0a;--gray:#888;--light:#f5f5f5}
 
+.product-img{width:100%;height:100%;object-fit:cover;display:block}
 /* Nav */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -319,25 +320,25 @@ footer .bottom{
 
 <script>
 const products = [
-  {id:1,series:'KX',name:'KX500-DIY Laser Cannon',power:'500W',price:1299,oldPrice:1599,
+  {id:1,img:'kx500.jpg',series:'KX',name:'KX500-DIY Laser Cannon',power:'500W',price:1299,oldPrice:1599,
    specs:'Range 80m | Wavelength 915nm | Battery DC 46V 10Ah | 5yr lifespan | Fast charging | 6kg',
    icon:'💥',tag:'HOT'},
-  {id:2,series:'KX',name:'KX130-DIY Laser Cannon',power:'130W',price:499,oldPrice:599,
+  {id:2,img:'kx130.jpg',series:'KX',name:'KX130-DIY Laser Cannon',power:'130W',price:499,oldPrice:599,
    specs:'Range 10-15m | Wavelength 915nm | 6-lens | Battery 5yr | Fast charging',
    icon:'🔥',tag:'SALE'},
-  {id:3,series:'SQ',name:'SQ500-2 DIY Laser Cannon',power:'500W',price:1199,oldPrice:1499,
+  {id:3,img:'sq500.jpg',series:'SQ',name:'SQ500-2 DIY Laser Cannon',power:'500W',price:1199,oldPrice:1499,
    specs:'Range 80m | Battery DC 46V 10Ah | Wavelength 915nm | Fast charging | 5.5kg',
    icon:'⚡',tag:'HOT'},
-  {id:4,series:'HT',name:'HT-280 Fiber Laser Cannon',power:'280W',price:1899,oldPrice:0,
+  {id:4,img:'ht280.jpg',series:'HT',name:'HT-280 Fiber Laser Cannon',power:'280W',price:1899,oldPrice:0,
    specs:'1064nm | Fiber core 8um | Air cooling | 500W power supply | 520nm indicator',
    icon:'🎯',tag:'NEW'},
-  {id:5,series:'HT',name:'HT-140 Fiber Laser Cannon',power:'140W',price:999,oldPrice:0,
+  {id:5,img:'ht140.jpg',series:'HT',name:'HT-140 Fiber Laser Cannon',power:'140W',price:999,oldPrice:0,
    specs:'Fiber laser | Compact design | Professional grade | Beam stability',
    icon:'🎯',tag:''},
-  {id:6,series:'YZ',name:'YZ130-01 DIY Laser Cannon',power:'130W',price:459,oldPrice:0,
+  {id:6,img:'yz130-01.jpg',series:'YZ',name:'YZ130-01 DIY Laser Cannon',power:'130W',price:459,oldPrice:0,
    specs:'Range 15m | Battery DC 16.8V 5Ah | Wavelength 915nm | 5yr life | Fast charging',
    icon:'⚙️',tag:'SALE'},
-  {id:7,series:'YZ',name:'YZ130-02 DIY Laser Cannon',power:'130W',price:479,oldPrice:0,
+  {id:7,img:'yz130-02.jpg',series:'YZ',name:'YZ130-02 DIY Laser Cannon',power:'130W',price:479,oldPrice:0,
    specs:'Range 15m | Battery DC 16.8V 5Ah | Wavelength 974nm | 5yr life | Fast charging',
    icon:'⚙️',tag:''},
   {id:8,series:'YZ',name:'YZ120-02 DIY Laser Cannon',power:'120W',price:309,oldPrice:0,
@@ -346,7 +347,7 @@ const products = [
   {id:9,series:'YZ',name:'YZ-40 Mini Laser Cannon',power:'40W',price:149,oldPrice:0,
    specs:'Range 1m | Battery 1500mA*2 | Wavelength 974nm | Type-C charging | 2yr life',
    icon:'🔬',tag:'SALE'},
-  {id:10,series:'JGX3',name:'JGX3-130 Laser Cannon',power:'130W',price:389,oldPrice:0,
+  {id:10,img:'jgx3-130.jpg',series:'JGX3',name:'JGX3-130 Laser Cannon',power:'130W',price:389,oldPrice:0,
    specs:'Range 10m | Battery 18.5V 1.1ah x2 | 1kg | Laser-pumped | Spare battery included',
    icon:'🔋',tag:''},
   {id:11,series:'JGX3',name:'JGX3-120 Laser Cannon',power:'120W',price:349,oldPrice:0,
@@ -374,7 +375,7 @@ function renderProducts(filter) {
   grid.innerHTML = items.map(p => `
     <div class="product-card fade-up">
       <div class="img-wrap">
-        <div class="icon">${p.icon}</div>
+        <div class="icon">${p.img ? `<img src="image/${p.img}" class="product-img" alt="${p.name}" />` : p.icon}</div>
         ${p.tag ? `<div class="badge ${p.tag === 'HOT' ? 'hot' : 'sale'}">${p.tag}</div>` : ''}
       </div>
       <div class="body">
