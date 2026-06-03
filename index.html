@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaserPro · High-Power Laser Systems</title>
+<title>LaserPro 路 High-Power Laser Systems</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter','Helvetica Neue',sans-serif;color:#111;background:#fafafa;overflow-x:hidden}
@@ -115,7 +115,7 @@ nav .menu a:hover{color:var(--red)}
 
 <div class="hero">
   <div class="hero-content">
-    <div class="tag">⚡ NEW GENERATION</div>
+    <div class="tag">鈿?NEW GENERATION</div>
     <h1>High-Power <em>Laser</em> Systems</h1>
     <p>Professional-grade handheld laser cannons. Worldwide shipping. Pay with USDT (TRC-20).</p>
     <a href="#products" class="btn-primary">VIEW PRODUCTS</a>
@@ -151,14 +151,14 @@ nav .menu a:hover{color:var(--red)}
 <!-- Payment Modal -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 <div class="modal" id="checkoutModal">
-  <button class="close-btn" onclick="closeModal()">✕</button>
+  <button class="close-btn" onclick="closeModal()">鉁?/button>
 
   <div id="modalContent">
     <!-- Step 1: Confirm Order -->
     <div class="step show" id="step1">
       <h2>Confirm Your Order</h2>
       <div class="order-summary" id="orderSummary"></div>
-      <div style="margin-bottom:12px;font-size:12px;color:#888;line-height:1.6">✅ Free shipping worldwide<br>💳 Pay with USDT (TRC-20)</div>
+      <div style="margin-bottom:12px;font-size:12px;color:#888;line-height:1.6">鉁?Free shipping worldwide<br>馃挸 Pay with USDT (TRC-20)</div>
       <button class="btn-submit" onclick="goStep2()">PLACE ORDER</button>
     </div>
 
@@ -167,18 +167,18 @@ nav .menu a:hover{color:var(--red)}
       <h2>Pay with USDT (TRC-20)</h2>
       <div class="order-summary" id="orderSummary2"></div>
       <div class="usdt-box">
-        <div style="font-size:12px;margin-bottom:8px;color:var(--gold)">💎 Send exact amount to:</div>
+        <div style="font-size:12px;margin-bottom:8px;color:var(--gold)">馃拵 Send exact amount to:</div>
         <div class="address" id="usdtAddress">TBYW6pAE3JTpGvd4GdAyph3oLWo12ogQ3e</div>
-        <button class="copy-btn" onclick="copyAddress()">📋 Copy Address</button>
+        <button class="copy-btn" onclick="copyAddress()">馃搵 Copy Address</button>
         <div style="margin-top:12px;font-size:11px;color:#888">
           Network: <strong style="color:#fff">TRC-20</strong> |
           Amount: <strong style="color:var(--gold)" id="payAmount">0 USDT</strong>
         </div>
       </div>
       <div style="text-align:center;padding:12px;background:#fff3cd;border-radius:6px;margin:12px 0;font-size:12px;color:#856404">
-        ⚠️ After payment, fill in your shipping details below
+        鈿狅笍 After payment, fill in your shipping details below
       </div>
-      <button class="btn-submit" onclick="goStep3()" style="background:var(--gold)">I'VE PAID → FILL SHIPPING INFO</button>
+      <button class="btn-submit" onclick="goStep3()" style="background:var(--gold)">I'VE PAID 鈫?FILL SHIPPING INFO</button>
     </div>
 
     <!-- Step 3: Shipping Info -->
@@ -219,11 +219,11 @@ nav .menu a:hover{color:var(--red)}
     <!-- Step 4: Confirmation -->
     <div class="step" id="step4">
       <div style="text-align:center;padding:20px 0">
-        <div style="font-size:48px;margin-bottom:16px">✅</div>
+        <div style="font-size:48px;margin-bottom:16px">鉁?/div>
         <h2>Order Submitted!</h2>
         <p style="font-size:14px;color:#888;margin:12px 0 20px">Your order has been received. We will process it within 24 hours after payment confirmation.</p>
         <div class="order-summary" id="orderSummary3"></div>
-        <p style="font-size:12px;color:#888;margin-top:12px">📧 We'll send shipping updates to your email</p>
+        <p style="font-size:12px;color:#888;margin-top:12px">馃摟 We'll send shipping updates to your email</p>
         <button class="btn-submit" onclick="closeModal()" style="background:var(--dark);margin-top:16px">DONE</button>
       </div>
     </div>
@@ -237,21 +237,21 @@ const USDT_ADDRESS = "TBYW6pAE3JTpGvd4GdAyph3oLWo12ogQ3e";
 const NETWORK = "TRC-20";
 
 const products = [
-  {id:1,series:'KX',name:'KX500-DIY Laser Cannon',power:'500W',price:1299,oldPrice:1599,specs:'Range 80m | 915nm | DC 46V 10Ah | 5yr battery | 6kg',icon:'💥',tag:'HOT'},
-  {id:2,series:'KX',name:'KX130-DIY Laser Cannon',power:'130W',price:499,oldPrice:599,specs:'Range 10-15m | 915nm | 6-lens | 5yr battery',icon:'🔥',tag:'SALE'},
-  {id:3,series:'SQ',name:'SQ500-2 DIY Laser Cannon',power:'500W',price:1199,oldPrice:1499,specs:'Range 80m | DC 46V 10Ah | 915nm | 5.5kg',icon:'⚡',tag:'HOT'},
-  {id:4,series:'HT',name:'HT-280 Fiber Laser Cannon',power:'280W',price:1899,oldPrice:0,specs:'1064nm | Fiber 8um | Air cooling | 500W',icon:'🎯',tag:'NEW'},
-  {id:5,series:'HT',name:'HT-140 Fiber Laser Cannon',power:'140W',price:999,oldPrice:0,specs:'Fiber laser | Compact | Professional',icon:'🎯',tag:''},
-  {id:6,series:'YZ',name:'YZ130-01 DIY Laser Cannon',power:'130W',price:459,oldPrice:0,specs:'Range 15m | DC 16.8V 5Ah | 915nm',icon:'⚙️',tag:'SALE'},
-  {id:7,series:'YZ',name:'YZ130-02 DIY Laser Cannon',power:'130W',price:479,oldPrice:0,specs:'Range 15m | DC 16.8V 5Ah | 974nm',icon:'⚙️',tag:''},
-  {id:8,series:'YZ',name:'YZ120-02 DIY Laser Cannon',power:'120W',price:309,oldPrice:0,specs:'Range 5-10m | DC 14.8V | 1064nm',icon:'⚙️',tag:'NEW'},
-  {id:9,series:'YZ',name:'YZ-40 Mini Laser Cannon',power:'40W',price:149,oldPrice:0,specs:'Range 1m | 1500mA*2 | 974nm | Type-C',icon:'🔬',tag:'SALE'},
-  {id:10,series:'JGX3',name:'JGX3-130 Laser Cannon',power:'130W',price:389,oldPrice:0,specs:'Range 10m | 18.5V 1.1ah x2 | 1kg',icon:'🔋',tag:''},
-  {id:11,series:'JGX3',name:'JGX3-120 Laser Cannon',power:'120W',price:349,oldPrice:0,specs:'Range 10m | 1kg | Goggles included',icon:'🔋',tag:''},
-  {id:12,series:'DC',name:'DC-40 Mini Laser Cannon',power:'40W',price:129,oldPrice:179,specs:'Range 1m | 80W | 0.5kg | Silent fan',icon:'🔬',tag:'SALE'},
-  {id:13,series:'YT',name:'YT-120 Laser Cannon',power:'120W',price:329,oldPrice:0,specs:'Mid-range | Balanced | Compact',icon:'📏',tag:''},
-  {id:14,series:'LQ',name:'LQ1-1000 Obstacle Remover Premium',power:'1000W',price:2499,oldPrice:0,specs:'Two Batteries | Industrial grade',icon:'⚡',tag:'NEW'},
-  {id:15,series:'LQ',name:'LQ1-1000 Obstacle Remover',power:'1000W',price:1999,oldPrice:0,specs:'Single Battery | Portable',icon:'⚡',tag:''},
+  {id:1,series:'KX',name:'KX500-DIY Laser Cannon',power:'500W',price:1299,oldPrice:1599,specs:'Range 80m | 915nm | DC 46V 10Ah | 5yr battery | 6kg',icon:'馃挜',tag:'HOT'},
+  {id:2,series:'KX',name:'KX130-DIY Laser Cannon',power:'130W',price:499,oldPrice:599,specs:'Range 10-15m | 915nm | 6-lens | 5yr battery',icon:'馃敟',tag:'SALE'},
+  {id:3,series:'SQ',name:'SQ500-2 DIY Laser Cannon',power:'500W',price:1199,oldPrice:1499,specs:'Range 80m | DC 46V 10Ah | 915nm | 5.5kg',icon:'鈿?,tag:'HOT'},
+  {id:4,series:'HT',name:'HT-280 Fiber Laser Cannon',power:'280W',price:1899,oldPrice:0,specs:'1064nm | Fiber 8um | Air cooling | 500W',icon:'馃幆',tag:'NEW'},
+  {id:5,series:'HT',name:'HT-140 Fiber Laser Cannon',power:'140W',price:999,oldPrice:0,specs:'Fiber laser | Compact | Professional',icon:'馃幆',tag:''},
+  {id:6,series:'YZ',name:'YZ130-01 DIY Laser Cannon',power:'130W',price:459,oldPrice:0,specs:'Range 15m | DC 16.8V 5Ah | 915nm',icon:'鈿欙笍',tag:'SALE'},
+  {id:7,series:'YZ',name:'YZ130-02 DIY Laser Cannon',power:'130W',price:479,oldPrice:0,specs:'Range 15m | DC 16.8V 5Ah | 974nm',icon:'鈿欙笍',tag:''},
+  {id:8,series:'YZ',name:'YZ120-02 DIY Laser Cannon',power:'120W',price:309,oldPrice:0,specs:'Range 5-10m | DC 14.8V | 1064nm',icon:'鈿欙笍',tag:'NEW'},
+  {id:9,series:'YZ',name:'YZ-40 Mini Laser Cannon',power:'40W',price:149,oldPrice:0,specs:'Range 1m | 1500mA*2 | 974nm | Type-C',icon:'馃敩',tag:'SALE'},
+  {id:10,series:'JGX3',name:'JGX3-130 Laser Cannon',power:'130W',price:389,oldPrice:0,specs:'Range 10m | 18.5V 1.1ah x2 | 1kg',icon:'馃攱',tag:''},
+  {id:11,series:'JGX3',name:'JGX3-120 Laser Cannon',power:'120W',price:349,oldPrice:0,specs:'Range 10m | 1kg | Goggles included',icon:'馃攱',tag:''},
+  {id:12,series:'DC',name:'DC-40 Mini Laser Cannon',power:'40W',price:129,oldPrice:179,specs:'Range 1m | 80W | 0.5kg | Silent fan',icon:'馃敩',tag:'SALE'},
+  {id:13,series:'YT',name:'YT-120 Laser Cannon',power:'120W',price:329,oldPrice:0,specs:'Mid-range | Balanced | Compact',icon:'馃搹',tag:''},
+  {id:14,series:'LQ',name:'LQ1-1000 Obstacle Remover Premium',power:'1000W',price:2499,oldPrice:0,specs:'Two Batteries | Industrial grade',icon:'鈿?,tag:'NEW'},
+  {id:15,series:'LQ',name:'LQ1-1000 Obstacle Remover',power:'1000W',price:1999,oldPrice:0,specs:'Single Battery | Portable',icon:'鈿?,tag:''},
 ];
 
 let currentProduct = null;
@@ -311,7 +311,7 @@ function goStep3() {
 
 function copyAddress() {
   navigator.clipboard.writeText(USDT_ADDRESS).then(() => {
-    showToast('📋 Address copied!');
+    showToast('馃搵 Address copied!');
   }).catch(() => {
     // Fallback
     const ta = document.createElement('textarea');
@@ -320,11 +320,16 @@ function copyAddress() {
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast('📋 Address copied!');
+    showToast('馃搵 Address copied!');
   });
 }
 
-function submitOrder() {
+// Email notification via Formspree
+function notifyOrder(order) {
+    var f = new FormData();
+    f.append('Order ID', order.id);
+    f.append('Product', order.product);
+    f.append('Price', ' {
   const name = document.getElementById('shipName').value.trim();
   const email = document.getElementById('shipEmail').value.trim();
   const phone = document.getElementById('shipPhone').value.trim();
@@ -333,7 +338,7 @@ function submitOrder() {
   const txid = document.getElementById('txid').value.trim();
 
   if (!name || !email || !phone || !country || !address) {
-    showToast('⚠️ Please fill in all required fields');
+    showToast('鈿狅笍 Please fill in all required fields');
     return;
   }
 
@@ -365,12 +370,12 @@ function submitOrder() {
     <div class="row"><span>Email</span><span>${order.customer.email}</span></div>
   `;
 
-  showToast('✅ Order submitted successfully!');
+  showToast('鉁?Order submitted successfully!');
 }
 
 function lookupOrders() {
   const email = document.getElementById('orderEmail').value.trim();
-  if (!email) { showToast('⚠️ Enter your email'); return; }
+  if (!email) { showToast('鈿狅笍 Enter your email'); return; }
 
   const orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
   const found = orders.filter(o => o.customer.email.toLowerCase() === email.toLowerCase());
@@ -432,3 +437,125 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+ + order.price);
+    f.append('Name', order.customer.name);
+    f.append('Email', order.customer.email);
+    f.append('Phone', order.customer.phone);
+    f.append('Country', order.customer.country);
+    f.append('Address', order.customer.address);
+    f.append('TXID', order.txid);
+    var x = new XMLHttpRequest();
+    x.open('POST', 'https://formspree.io/f/xkgnzkkv', true);
+    x.setRequestHeader('Accept', 'application/json');
+    x.send(f);
+}
+
+function submitOrder() {
+  const name = document.getElementById('shipName').value.trim();
+  const email = document.getElementById('shipEmail').value.trim();
+  const phone = document.getElementById('shipPhone').value.trim();
+  const country = document.getElementById('shipCountry').value.trim();
+  const address = document.getElementById('shipAddress').value.trim();
+  const txid = document.getElementById('txid').value.trim();
+
+  if (!name || !email || !phone || !country || !address) {
+    showToast('鈿狅笍 Please fill in all required fields');
+    return;
+  }
+
+  const order = {
+    id: Date.now().toString(36).toUpperCase(),
+    date: new Date().toISOString(),
+    product: currentProduct.name,
+    price: currentPrice,
+    network: NETWORK,
+    usdtAddress: USDT_ADDRESS,
+    txid: txid || 'Pending',
+    customer: { name, email, phone, country, address },
+    notes: document.getElementById('shipNotes').value.trim(),
+    status: 'Pending (awaiting payment confirmation)'
+  };
+
+  // Save to localStorage
+  let orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
+  orders.push(order);
+  localStorage.setItem('laserpro_orders', JSON.stringify(orders));
+
+  // Show confirmation
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('show'));
+  document.getElementById('step4').classList.add('show');
+  document.getElementById('orderSummary3').innerHTML = `
+    <div class="row"><span>Order #</span><span>${order.id}</span></div>
+    <div class="row"><span>Product</span><span>${order.product}</span></div>
+    <div class="row"><span>Total Paid</span><span>$${order.price}</span></div>
+    <div class="row"><span>Email</span><span>${order.customer.email}</span></div>
+  `;
+
+  showToast('鉁?Order submitted successfully!');
+}
+
+function lookupOrders() {
+  const email = document.getElementById('orderEmail').value.trim();
+  if (!email) { showToast('鈿狅笍 Enter your email'); return; }
+
+  const orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
+  const found = orders.filter(o => o.customer.email.toLowerCase() === email.toLowerCase());
+
+  const container = document.getElementById('orderResults');
+  if (found.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:20px;color:#888">No orders found with this email</div>';
+  } else {
+    container.innerHTML = `
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <tr style="background:#f5f5f5"><th style="padding:8px 12px;text-align:left">Order</th><th style="padding:8px 12px;text-align:left">Product</th><th style="padding:8px 12px;text-align:left">Amount</th><th style="padding:8px 12px;text-align:left">Status</th></tr>
+          ${found.map(o => `<tr>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.id}</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.product}</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee">$${o.price}</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.status}</td>
+          </tr>`).join('')}
+        </table>
+      </div>
+    `;
+  }
+}
+
+function closeModal() {
+  document.getElementById('checkoutModal').classList.remove('show');
+  document.getElementById('modalOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+
+  // Clear form
+  ['shipName','shipEmail','shipPhone','shipCountry','shipAddress','txid','shipNotes'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function observeFade() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  observeFade();
+  setTimeout(() => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 200);
+});
+</script>
+</body>
+</html>
+
