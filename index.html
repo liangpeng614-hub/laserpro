@@ -3,102 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaserPro 路 High-Power Laser Systems</title>
+<title>LaserPro · High-Power Laser Systems</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter','Helvetica Neue',sans-serif;color:#111;background:#fafafa;overflow-x:hidden}
-:root{--red:#dc2626;--red-dark:#991b1b;--dark:#0a0a0a;--gray:#888;--light:#f5f5f5;--gold:#c9a96e}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 60px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05)}
+:root{--red:#dc2626;--red-dark:#991b1b;--dark:#0a0a0a;--gray:#888;--light:#f5f5f5}
+
+/* Nav */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 60px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.05)
+}
 nav .logo{font-size:22px;font-weight:800;letter-spacing:2px;color:#fff}
 nav .logo span{color:var(--red)}
 nav .menu{display:flex;gap:32px;list-style:none}
 nav .menu a{text-decoration:none;color:#aaa;font-size:13px;letter-spacing:1px;transition:0.3s}
 nav .menu a:hover{color:var(--red)}
+nav .cart{color:#fff;cursor:pointer;font-size:14px;letter-spacing:1px}
 
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0d0d0d 100%);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(220,38,38,0.08) 0%,transparent 70%);top:-200px;right:-200px;animation:pulse 8s ease-in-out infinite}
-.hero::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(220,38,38,0.05) 0%,transparent 70%);bottom:-200px;left:-200px;animation:pulse 10s ease-in-out infinite reverse}
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0d0d0d 100%);
+  position:relative;overflow:hidden;margin-top:0
+}
+.hero::before{
+  content:'';position:absolute;width:800px;height:800px;
+  background:radial-gradient(circle,rgba(220,38,38,0.08) 0%,transparent 70%);
+  top:-200px;right:-200px;animation:pulse 8s ease-in-out infinite
+}
+.hero::after{
+  content:'';position:absolute;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(220,38,38,0.05) 0%,transparent 70%);
+  bottom:-200px;left:-200px;animation:pulse 10s ease-in-out infinite reverse
+}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.2);opacity:1}}
 .hero-content{text-align:center;z-index:1;padding:20px;max-width:800px}
-.hero-content .tag{display:inline-block;padding:8px 20px;border:1px solid rgba(220,38,38,0.3);border-radius:50px;font-size:11px;letter-spacing:2px;color:var(--red);margin-bottom:24px}
-.hero-content h1{font-size:64px;font-weight:800;letter-spacing:-2px;color:#fff;margin-bottom:16px;line-height:1.1}
+.hero-content .tag{
+  display:inline-block;padding:8px 20px;border:1px solid rgba(220,38,38,0.3);
+  border-radius:50px;font-size:11px;letter-spacing:2px;color:var(--red);margin-bottom:24px
+}
+.hero-content h1{
+  font-size:64px;font-weight:800;letter-spacing:-2px;color:#fff;margin-bottom:16px;line-height:1.1
+}
 .hero-content h1 em{color:var(--red);font-style:normal}
 .hero-content p{font-size:16px;color:#888;line-height:1.8;max-width:560px;margin:0 auto 40px}
-.hero-content .btn-primary{padding:14px 40px;background:var(--red);color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;transition:0.3s;text-decoration:none;font-weight:600;display:inline-block;margin:0 8px}
+.hero-content .btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-content .btn-primary{
+  padding:14px 40px;background:var(--red);color:#fff;border:none;
+  font-size:12px;letter-spacing:2px;cursor:pointer;transition:0.3s;text-decoration:none;font-weight:600
+}
 .hero-content .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+.hero-content .btn-outline{
+  padding:14px 40px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);
+  font-size:12px;letter-spacing:2px;cursor:pointer;transition:0.3s;text-decoration:none
+}
+.hero-content .btn-outline:hover{border-color:var(--red);color:var(--red)}
 
+/* Section */
 .section{padding:100px 60px;max-width:1280px;margin:0 auto}
+.section-dark{background:#0a0a0a;padding:100px 60px;max-width:none}
 .section-header{text-align:center;margin-bottom:56px}
 .section-header .tag{font-size:11px;letter-spacing:3px;color:var(--red);margin-bottom:12px}
 .section-header h2{font-size:36px;font-weight:700;letter-spacing:-1px}
+.section-header.dark h2{color:#fff}
 .section-header p{color:var(--gray);font-size:14px;max-width:480px;margin:10px auto 0;line-height:1.7}
 
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+.stat-item{padding:40px 30px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+.stat-item:last-child{border-right:none}
+.stat-item .num{font-size:36px;font-weight:800;color:#fff;letter-spacing:-1px}
+.stat-item .num span{color:var(--red)}
+.stat-item .label{font-size:12px;color:#666;letter-spacing:1px;margin-top:6px}
+
+/* Products */
 .products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.product-card{background:#fff;border:1px solid #eee;overflow:hidden;transition:0.4s;position:relative}
+.product-card{
+  background:#fff;border:1px solid #eee;overflow:hidden;transition:0.4s;position:relative
+}
 .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.1)}
-.product-card .img-wrap{height:240px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);position:relative;overflow:hidden}
+.product-card .img-wrap{
+  height:260px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#1a1a1a,#2a2a2a);position:relative;overflow:hidden
+}
 .product-card .img-wrap .icon{font-size:60px;transition:0.5s;filter:drop-shadow(0 0 20px rgba(220,38,38,0.3))}
 .product-card:hover .img-wrap .icon{transform:scale(1.15)}
-.product-card .img-wrap .badge{position:absolute;top:12px;left:12px;padding:4px 12px;font-size:9px;letter-spacing:1px;border-radius:3px;font-weight:600}
+.product-card .img-wrap .badge{
+  position:absolute;top:12px;left:12px;padding:4px 12px;font-size:9px;letter-spacing:1px;border-radius:3px;font-weight:600
+}
 .product-card .img-wrap .badge.sale{background:var(--red);color:#fff}
 .product-card .img-wrap .badge.hot{background:#fff;color:var(--dark)}
-.product-card .body{padding:20px}
+.product-card .body{padding:24px}
 .product-card .body .series{font-size:10px;letter-spacing:2px;color:var(--red);margin-bottom:4px;font-weight:600}
 .product-card .body h3{font-size:16px;font-weight:600;margin-bottom:4px}
-.product-card .body .spec{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:12px;min-height:60px}
-.product-card .body .price{font-size:20px;font-weight:700;margin-bottom:12px}
-.product-card .body .price .old{font-size:13px;color:#bbb;text-decoration:line-through;margin-left:8px;font-weight:400}
-.product-card .body .btn-buy{width:100%;padding:12px;background:var(--dark);color:#fff;border:none;font-size:12px;letter-spacing:1px;cursor:pointer;transition:0.3s;font-weight:600}
-.product-card .body .btn-buy:hover{background:var(--red)}
+.product-card .body .spec{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:12px}
+.product-card .body .price-row{display:flex;align-items:center;justify-content:space-between}
+.product-card .body .price-row .price{font-size:20px;font-weight:700}
+.product-card .body .price-row .price .old{font-size:13px;color:#bbb;text-decoration:line-through;margin-left:8px;font-weight:400}
+.product-card .body .price-row .btn-add{
+  padding:8px 20px;background:var(--dark);color:#fff;border:none;
+  font-size:11px;letter-spacing:1px;cursor:pointer;transition:0.3s;font-weight:600
+}
+.product-card .body .price-row .btn-add:hover{background:var(--red)}
 
-/* Payment Modal */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;opacity:0;pointer-events:none;transition:0.3s;backdrop-filter:blur(4px)}
-.modal-overlay.show{opacity:1;pointer-events:all}
-.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.95);width:90%;max-width:520px;max-height:90vh;overflow-y:auto;background:#fff;z-index:201;opacity:0;pointer-events:none;transition:0.3s;padding:40px}
-.modal.show{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
-.modal .close-btn{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:#f5f5f5;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-.modal h2{font-size:22px;margin-bottom:8px}
-.modal .order-summary{background:#f9f9f9;padding:16px;border-radius:8px;margin:16px 0}
-.modal .order-summary .row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px}
-.modal .order-summary .row.total{border-top:2px solid #ddd;margin-top:6px;padding-top:10px;font-weight:700;font-size:16px}
-.modal .usdt-box{background:#0a0a0a;color:#fff;padding:16px;border-radius:8px;text-align:center;margin:16px 0}
-.modal .usdt-box .address{font-family:monospace;font-size:11px;word-break:break-all;background:rgba(255,255,255,0.1);padding:12px;border-radius:6px;margin:10px 0;color:#ccc}
-.modal .usdt-box .copy-btn{padding:8px 20px;background:var(--gold);border:none;color:#fff;cursor:pointer;border-radius:4px;font-size:12px;margin-top:8px}
-.modal .form-group{margin-bottom:14px}
-.modal .form-group label{display:block;font-size:12px;font-weight:600;margin-bottom:4px;color:#555}
-.modal .form-group input,.modal .form-group textarea,.modal .form-group select{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:inherit;outline:none;transition:0.3s}
-.modal .form-group input:focus,.modal .form-group textarea:focus{border-color:var(--red)}
-.modal .form-group textarea{height:60px;resize:vertical}
-.modal .btn-submit{width:100%;padding:14px;background:var(--red);color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;font-weight:600;transition:0.3s}
-.modal .btn-submit:hover{background:var(--red-dark)}
-.modal .step-indicator{display:flex;justify-content:center;gap:8px;margin-bottom:20px}
-.modal .step-indicator .dot{width:10px;height:10px;border-radius:50%;background:#ddd}
-.modal .step-indicator .dot.active{background:var(--red)}
-.step{display:none}
-.step.show{display:block}
+/* Features Grid */
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.06)}
+.feature-card{background:#0a0a0a;padding:40px 30px;text-align:center;transition:0.3s}
+.feature-card:hover{background:rgba(220,38,38,0.05)}
+.feature-card .icon{font-size:36px;margin-bottom:12px;display:block}
+.feature-card h3{color:#fff;font-size:15px;font-weight:600;margin-bottom:6px}
+.feature-card p{color:#666;font-size:12px;line-height:1.6}
 
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:300;background:var(--dark);color:#fff;padding:16px 32px;font-size:12px;letter-spacing:1px;opacity:0;transition:0.4s;pointer-events:none;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
-.toast.show{opacity:1;bottom:40px}
+/* Testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testimonial-card{
+  background:#fff;border:1px solid #eee;padding:32px;transition:0.3s
+}
+.testimonial-card:hover{border-color:var(--red)}
+.testimonial-card .stars{color:#f5a623;font-size:14px;margin-bottom:12px}
+.testimonial-card p{font-size:13px;color:#666;line-height:1.8;margin-bottom:16px;font-style:italic}
+.testimonial-card .author{display:flex;align-items:center;gap:12px}
+.testimonial-card .author .avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--light);
+  display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--gray)
+}
+.testimonial-card .author .name{font-size:13px;font-weight:600}
+.testimonial-card .author .country{font-size:11px;color:var(--gray)}
 
-/* Shipping info page */
-.section-order{background:#fff;max-width:800px;margin:120px auto 40px;padding:40px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
-.section-order h2{font-size:24px;margin-bottom:16px}
-.section-order table{width:100%;border-collapse:collapse;margin:16px 0}
-.section-order th,.section-order td{padding:10px 14px;border-bottom:1px solid #eee;text-align:left;font-size:13px}
-.section-order th{background:#f5f5f5;font-weight:600}
+/* Newsletter */
+.newsletter{background:linear-gradient(135deg,#0a0a0a,#1a1a1a);padding:80px 60px;max-width:none;text-align:center}
+.newsletter h2{color:#fff;font-size:28px;font-weight:700;margin-bottom:10px}
+.newsletter p{color:#666;font-size:13px;margin-bottom:28px}
+.newsletter .input-row{display:flex;max-width:440px;margin:0 auto;gap:0}
+.newsletter .input-row input{
+  flex:1;padding:14px 18px;border:none;font-size:13px;font-family:inherit;outline:none;background:#fff
+}
+.newsletter .input-row button{
+  padding:14px 28px;background:var(--red);color:#fff;border:none;
+  font-size:11px;letter-spacing:2px;cursor:pointer;transition:0.3s;font-weight:600;font-family:inherit
+}
+.newsletter .input-row button:hover{background:var(--red-dark)}
 
+/* Footer */
+footer{
+  background:#0a0a0a;padding:60px 60px 30px;max-width:none;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px
+}
+footer .col .logo{font-size:20px;font-weight:800;letter-spacing:2px;color:#fff;margin-bottom:12px}
+footer .col .logo span{color:var(--red)}
+footer .col p{color:#666;font-size:12px;line-height:1.8;max-width:280px}
+footer .col h4{color:#fff;font-size:12px;letter-spacing:2px;margin-bottom:16px;font-weight:600}
+footer .col a{display:block;color:#666;text-decoration:none;font-size:12px;margin-bottom:8px;transition:0.3s}
+footer .col a:hover{color:var(--red)}
+footer .bottom{
+  grid-column:1/-1;text-align:center;padding-top:24px;
+  border-top:1px solid rgba(255,255,255,0.06);margin-top:16px;color:#555;font-size:11px;letter-spacing:1px
+}
+
+/* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{opacity:0;transform:translateY(30px);transition:0.8s}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 
-@media(max-width:1024px){.products{grid-template-columns:repeat(2,1fr)}}
+/* Cart */
+.cart-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:var(--dark);padding:12px 60px;display:flex;justify-content:space-between;
+  align-items:center;transform:translateY(100%);transition:0.3s
+}
+.cart-bar.show{transform:translateY(0)}
+.cart-bar .info{color:#fff;font-size:13px}
+.cart-bar .info span{color:var(--red);font-weight:700}
+.cart-bar .checkout-btn{
+  padding:10px 28px;background:var(--red);color:#fff;border:none;
+  font-size:11px;letter-spacing:1px;cursor:pointer;font-weight:600;transition:0.3s
+}
+.cart-bar .checkout-btn:hover{background:var(--red-dark)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .products,.testimonials{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:768px){
   nav{padding:12px 24px}
   nav .menu{display:none}
   .hero-content h1{font-size:36px}
   .section{padding:60px 24px}
-  .products{grid-template-columns:1fr}
-  .modal{padding:24px;width:95%}
+  .products,.testimonials{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .features-grid{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr 1fr;padding:40px 24px 24px}
+  .newsletter{padding:60px 24px}
+  .section-dark{padding:60px 24px}
+  .cart-bar{padding:12px 24px;flex-direction:column;gap:8px}
 }
 </style>
 </head>
@@ -108,158 +211,167 @@ nav .menu a:hover{color:var(--red)}
   <div class="logo">LASER<span>PRO</span></div>
   <ul class="menu">
     <li><a href="#products">Products</a></li>
-    <li><a href="#orders">My Orders</a></li>
+    <li><a href="#series">Series</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="cart" onclick="toggleCart()">Cart (<span id="cartCount">0</span>)</div>
 </nav>
 
 <div class="hero">
   <div class="hero-content">
-    <div class="tag">鈿?NEW GENERATION</div>
+    <div class="tag">⚡ NEW GENERATION</div>
     <h1>High-Power <em>Laser</em> Systems</h1>
-    <p>Professional-grade handheld laser cannons. Worldwide shipping. Pay with USDT (TRC-20).</p>
-    <a href="#products" class="btn-primary">VIEW PRODUCTS</a>
-    <a href="#orders" class="btn-primary" style="background:transparent;border:1px solid rgba(255,255,255,0.2)" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='#fff'">TRACK ORDER</a>
+    <p>Professional-grade handheld laser cannons for industrial, commercial, and specialized applications. Precision engineering meets raw power.</p>
+    <div class="btn-group">
+      <a href="#products" class="btn-primary">EXPLORE PRODUCTS</a>
+      <a href="#series" class="btn-outline">VIEW SERIES</a>
+    </div>
   </div>
+</div>
+
+<div class="stats" style="background:#0a0a0a">
+  <div class="stat-item"><div class="num"><span>15</span>+</div><div class="label">Laser Models</div></div>
+  <div class="stat-item"><div class="num"><span>50</span>+</div><div class="label">Countries Served</div></div>
+  <div class="stat-item"><div class="num"><span>10k</span>+</div><div class="label">Units Shipped</div></div>
+  <div class="stat-item"><div class="num"><span>5</span>yr</div><div class="label">Battery Lifespan</div></div>
 </div>
 
 <div class="section" id="products">
   <div class="section-header fade-up">
-    <div class="tag">PRODUCTS</div>
-    <h2>Our Laser Systems</h2>
-    <p>All prices include free worldwide shipping. Pay with USDT (TRC-20).</p>
+    <div class="tag">OUR PRODUCTS</div>
+    <h2>Precision Laser Systems</h2>
+    <p>From compact 40W units to industrial-grade 500W fiber lasers</p>
   </div>
   <div class="products" id="productGrid"></div>
 </div>
 
-<div class="section" id="orders" style="display:none">
+<div class="section-dark" id="series">
+  <div class="section-header dark fade-up">
+    <div class="tag">SERIES</div>
+    <h2 style="color:#fff">Product Series</h2>
+    <p>Each series engineered for specific power requirements and applications</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><span class="icon">🔥</span><h3>KX Series</h3><p>500W high-power fiber laser cannons. Maximum range 80m. Industrial-grade performance with advanced cooling.</p></div>
+    <div class="feature-card"><span class="icon">⚡</span><h3>SQ Series</h3><p>500W DIY laser cannons. Customizable configuration with large-diameter quartz focusing lens.</p></div>
+    <div class="feature-card"><span class="icon">💥</span><h3>HT Series</h3><p>Fiber laser cannons 140-280W. 1064nm wavelength. Professional-grade beam precision and stability.</p></div>
+    <div class="feature-card"><span class="icon">🎯</span><h3>YZ Series</h3><p>130W handheld laser cannons. Multiple wavelength options (915/974/1064nm). Replaceable battery design.</p></div>
+    <div class="feature-card"><span class="icon">⚙️</span><h3>JGX3 Series</h3><p>120-130W laser-pumped handheld units. Compact design 1kg weight. 18.5V replaceable batteries.</p></div>
+    <div class="feature-card"><span class="icon">🔋</span><h3>KX130 / YZ130</h3><p>130W DIY laser cannons. 6-lens configuration. 5-year battery life with fast charging capability.</p></div>
+    <div class="feature-card"><span class="icon">📏</span><h3>YT Series</h3><p>120W laser cannons. Balanced power-to-portability ratio. Ideal for mid-range applications.</p></div>
+    <div class="feature-card"><span class="icon">🔬</span><h3>DC Series</h3><p>40W mini laser cannons. Entry-level precision. 80W power consumption with 30-50s continuous operation.</p></div>
+  </div>
+</div>
+
+<div class="section" id="testimonials">
   <div class="section-header fade-up">
-    <div class="tag">ORDERS</div>
-    <h2>Check Your Order</h2>
-    <p>Enter your email to look up your order status</p>
+    <div class="tag">TESTIMONIALS</div>
+    <h2>What Our Customers Say</h2>
+    <p>Global customers rely on our laser systems for precision and reliability</p>
   </div>
-  <div style="max-width:400px;margin:0 auto">
-    <div class="form-group">
-      <label>Email used at checkout</label>
-      <input type="email" id="orderEmail" placeholder="your@email.com">
-    </div>
-    <button class="btn-submit" onclick="lookupOrders()" style="background:var(--dark)">SEARCH</button>
-    <div id="orderResults" style="margin-top:20px"></div>
+  <div class="testimonials" id="testimonialGrid"></div>
+</div>
+
+<div class="newsletter" id="contact">
+  <h2>Stay Updated</h2>
+  <p>Get the latest product releases, technical guides, and exclusive offers</p>
+  <div class="input-row">
+    <input type="email" placeholder="Enter your email" id="emailInput">
+    <button onclick="subscribe()">SUBSCRIBE</button>
   </div>
 </div>
 
-<!-- Payment Modal -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
-<div class="modal" id="checkoutModal">
-  <button class="close-btn" onclick="closeModal()">鉁?/button>
-
-  <div id="modalContent">
-    <!-- Step 1: Confirm Order -->
-    <div class="step show" id="step1">
-      <h2>Confirm Your Order</h2>
-      <div class="order-summary" id="orderSummary"></div>
-      <div style="margin-bottom:12px;font-size:12px;color:#888;line-height:1.6">鉁?Free shipping worldwide<br>馃挸 Pay with USDT (TRC-20)</div>
-      <button class="btn-submit" onclick="goStep2()">PLACE ORDER</button>
-    </div>
-
-    <!-- Step 2: Pay with USDT -->
-    <div class="step" id="step2">
-      <h2>Pay with USDT (TRC-20)</h2>
-      <div class="order-summary" id="orderSummary2"></div>
-      <div class="usdt-box">
-        <div style="font-size:12px;margin-bottom:8px;color:var(--gold)">馃拵 Send exact amount to:</div>
-        <div class="address" id="usdtAddress">TBYW6pAE3JTpGvd4GdAyph3oLWo12ogQ3e</div>
-        <button class="copy-btn" onclick="copyAddress()">馃搵 Copy Address</button>
-        <div style="margin-top:12px;font-size:11px;color:#888">
-          Network: <strong style="color:#fff">TRC-20</strong> |
-          Amount: <strong style="color:var(--gold)" id="payAmount">0 USDT</strong>
-        </div>
-      </div>
-      <div style="text-align:center;padding:12px;background:#fff3cd;border-radius:6px;margin:12px 0;font-size:12px;color:#856404">
-        鈿狅笍 After payment, fill in your shipping details below
-      </div>
-      <button class="btn-submit" onclick="goStep3()" style="background:var(--gold)">I'VE PAID 鈫?FILL SHIPPING INFO</button>
-    </div>
-
-    <!-- Step 3: Shipping Info -->
-    <div class="step" id="step3">
-      <h2>Shipping Details</h2>
-      <p style="font-size:13px;color:#888;margin-bottom:16px">Enter your details so we can ship your order.</p>
-      <div class="form-group">
-        <label>Full Name *</label>
-        <input type="text" id="shipName" placeholder="John Smith">
-      </div>
-      <div class="form-group">
-        <label>Email *</label>
-        <input type="email" id="shipEmail" placeholder="john@email.com">
-      </div>
-      <div class="form-group">
-        <label>Phone / WhatsApp *</label>
-        <input type="text" id="shipPhone" placeholder="+1 123 456 7890">
-      </div>
-      <div class="form-group">
-        <label>Country *</label>
-        <input type="text" id="shipCountry" placeholder="United States">
-      </div>
-      <div class="form-group">
-        <label>Address *</label>
-        <textarea id="shipAddress" placeholder="Street, City, State, ZIP"></textarea>
-      </div>
-      <div class="form-group">
-        <label>Transaction ID (TXID)</label>
-        <input type="text" id="txid" placeholder="Paste your USDT transaction hash">
-      </div>
-      <div class="form-group">
-        <label>Notes (optional)</label>
-        <textarea id="shipNotes" placeholder="Any special instructions"></textarea>
-      </div>
-      <button class="btn-submit" onclick="submitOrder()">SUBMIT ORDER</button>
-    </div>
-
-    <!-- Step 4: Confirmation -->
-    <div class="step" id="step4">
-      <div style="text-align:center;padding:20px 0">
-        <div style="font-size:48px;margin-bottom:16px">鉁?/div>
-        <h2>Order Submitted!</h2>
-        <p style="font-size:14px;color:#888;margin:12px 0 20px">Your order has been received. We will process it within 24 hours after payment confirmation.</p>
-        <div class="order-summary" id="orderSummary3"></div>
-        <p style="font-size:12px;color:#888;margin-top:12px">馃摟 We'll send shipping updates to your email</p>
-        <button class="btn-submit" onclick="closeModal()" style="background:var(--dark);margin-top:16px">DONE</button>
-      </div>
-    </div>
+<footer>
+  <div class="col">
+    <div class="logo">LASER<span>PRO</span></div>
+    <p>Professional-grade high-power laser systems for industrial and specialized applications. Precision engineering since 2020.</p>
   </div>
-</div>
+  <div class="col">
+    <h4>Products</h4>
+    <a href="#" onclick="filterProducts('KX')">KX Series</a>
+    <a href="#" onclick="filterProducts('SQ')">SQ Series</a>
+    <a href="#" onclick="filterProducts('HT')">HT Series</a>
+    <a href="#" onclick="filterProducts('YZ')">YZ Series</a>
+    <a href="#" onclick="filterProducts('DC')">DC Series</a>
+  </div>
+  <div class="col">
+    <h4>Support</h4>
+    <a href="#">Shipping Info</a>
+    <a href="#">Return Policy</a>
+    <a href="#">User Manuals</a>
+    <a href="#">FAQ</a>
+  </div>
+  <div class="col">
+    <h4>Contact</h4>
+    <a href="#">info@laserpro.com</a>
+    <a href="#">+86 400-888-8888</a>
+    <a href="#">Technical Support</a>
+    <a href="#">Wholesale Inquiries</a>
+  </div>
+  <div class="bottom">© 2025 LaserPro. All rights reserved. Demo website.</div>
+</footer>
 
-<div class="toast" id="toast"></div>
+<div class="cart-bar" id="cartBar">
+  <div class="info">Cart: <span id="barCount">0</span> items | Total: $<span id="barTotal">0</span></div>
+  <button class="checkout-btn" onclick="checkout()">CHECKOUT</button>
+</div>
 
 <script>
-const USDT_ADDRESS = "TBYW6pAE3JTpGvd4GdAyph3oLWo12ogQ3e";
-const NETWORK = "TRC-20";
-
 const products = [
-  {id:1,series:'KX',name:'KX500-DIY Laser Cannon',power:'500W',price:1299,oldPrice:1599,specs:'Range 80m | 915nm | DC 46V 10Ah | 5yr battery | 6kg',icon:'馃挜',tag:'HOT'},
-  {id:2,series:'KX',name:'KX130-DIY Laser Cannon',power:'130W',price:499,oldPrice:599,specs:'Range 10-15m | 915nm | 6-lens | 5yr battery',icon:'馃敟',tag:'SALE'},
-  {id:3,series:'SQ',name:'SQ500-2 DIY Laser Cannon',power:'500W',price:1199,oldPrice:1499,specs:'Range 80m | DC 46V 10Ah | 915nm | 5.5kg',icon:'鈿?,tag:'HOT'},
-  {id:4,series:'HT',name:'HT-280 Fiber Laser Cannon',power:'280W',price:1899,oldPrice:0,specs:'1064nm | Fiber 8um | Air cooling | 500W',icon:'馃幆',tag:'NEW'},
-  {id:5,series:'HT',name:'HT-140 Fiber Laser Cannon',power:'140W',price:999,oldPrice:0,specs:'Fiber laser | Compact | Professional',icon:'馃幆',tag:''},
-  {id:6,series:'YZ',name:'YZ130-01 DIY Laser Cannon',power:'130W',price:459,oldPrice:0,specs:'Range 15m | DC 16.8V 5Ah | 915nm',icon:'鈿欙笍',tag:'SALE'},
-  {id:7,series:'YZ',name:'YZ130-02 DIY Laser Cannon',power:'130W',price:479,oldPrice:0,specs:'Range 15m | DC 16.8V 5Ah | 974nm',icon:'鈿欙笍',tag:''},
-  {id:8,series:'YZ',name:'YZ120-02 DIY Laser Cannon',power:'120W',price:309,oldPrice:0,specs:'Range 5-10m | DC 14.8V | 1064nm',icon:'鈿欙笍',tag:'NEW'},
-  {id:9,series:'YZ',name:'YZ-40 Mini Laser Cannon',power:'40W',price:149,oldPrice:0,specs:'Range 1m | 1500mA*2 | 974nm | Type-C',icon:'馃敩',tag:'SALE'},
-  {id:10,series:'JGX3',name:'JGX3-130 Laser Cannon',power:'130W',price:389,oldPrice:0,specs:'Range 10m | 18.5V 1.1ah x2 | 1kg',icon:'馃攱',tag:''},
-  {id:11,series:'JGX3',name:'JGX3-120 Laser Cannon',power:'120W',price:349,oldPrice:0,specs:'Range 10m | 1kg | Goggles included',icon:'馃攱',tag:''},
-  {id:12,series:'DC',name:'DC-40 Mini Laser Cannon',power:'40W',price:129,oldPrice:179,specs:'Range 1m | 80W | 0.5kg | Silent fan',icon:'馃敩',tag:'SALE'},
-  {id:13,series:'YT',name:'YT-120 Laser Cannon',power:'120W',price:329,oldPrice:0,specs:'Mid-range | Balanced | Compact',icon:'馃搹',tag:''},
-  {id:14,series:'LQ',name:'LQ1-1000 Obstacle Remover Premium',power:'1000W',price:2499,oldPrice:0,specs:'Two Batteries | Industrial grade',icon:'鈿?,tag:'NEW'},
-  {id:15,series:'LQ',name:'LQ1-1000 Obstacle Remover',power:'1000W',price:1999,oldPrice:0,specs:'Single Battery | Portable',icon:'鈿?,tag:''},
+  {id:1,series:'KX',name:'KX500-DIY Laser Cannon',power:'500W',price:1299,oldPrice:1599,
+   specs:'Range 80m | Wavelength 915nm | Battery DC 46V 10Ah | 5yr lifespan | Fast charging | 6kg',
+   icon:'💥',tag:'HOT'},
+  {id:2,series:'KX',name:'KX130-DIY Laser Cannon',power:'130W',price:499,oldPrice:599,
+   specs:'Range 10-15m | Wavelength 915nm | 6-lens | Battery 5yr | Fast charging',
+   icon:'🔥',tag:'SALE'},
+  {id:3,series:'SQ',name:'SQ500-2 DIY Laser Cannon',power:'500W',price:1199,oldPrice:1499,
+   specs:'Range 80m | Battery DC 46V 10Ah | Wavelength 915nm | Fast charging | 5.5kg',
+   icon:'⚡',tag:'HOT'},
+  {id:4,series:'HT',name:'HT-280 Fiber Laser Cannon',power:'280W',price:1899,oldPrice:0,
+   specs:'1064nm | Fiber core 8um | Air cooling | 500W power supply | 520nm indicator',
+   icon:'🎯',tag:'NEW'},
+  {id:5,series:'HT',name:'HT-140 Fiber Laser Cannon',power:'140W',price:999,oldPrice:0,
+   specs:'Fiber laser | Compact design | Professional grade | Beam stability',
+   icon:'🎯',tag:''},
+  {id:6,series:'YZ',name:'YZ130-01 DIY Laser Cannon',power:'130W',price:459,oldPrice:0,
+   specs:'Range 15m | Battery DC 16.8V 5Ah | Wavelength 915nm | 5yr life | Fast charging',
+   icon:'⚙️',tag:'SALE'},
+  {id:7,series:'YZ',name:'YZ130-02 DIY Laser Cannon',power:'130W',price:479,oldPrice:0,
+   specs:'Range 15m | Battery DC 16.8V 5Ah | Wavelength 974nm | 5yr life | Fast charging',
+   icon:'⚙️',tag:''},
+  {id:8,series:'YZ',name:'YZ120-02 DIY Laser Cannon',power:'120W',price:309,oldPrice:0,
+   specs:'Range 5-10m | Battery DC 14.8V 5Ah | Wavelength 1064nm | 5yr life',
+   icon:'⚙️',tag:'NEW'},
+  {id:9,series:'YZ',name:'YZ-40 Mini Laser Cannon',power:'40W',price:149,oldPrice:0,
+   specs:'Range 1m | Battery 1500mA*2 | Wavelength 974nm | Type-C charging | 2yr life',
+   icon:'🔬',tag:'SALE'},
+  {id:10,series:'JGX3',name:'JGX3-130 Laser Cannon',power:'130W',price:389,oldPrice:0,
+   specs:'Range 10m | Battery 18.5V 1.1ah x2 | 1kg | Laser-pumped | Spare battery included',
+   icon:'🔋',tag:''},
+  {id:11,series:'JGX3',name:'JGX3-120 Laser Cannon',power:'120W',price:349,oldPrice:0,
+   specs:'Range 10m | Battery 18.5V 1.1ah x2 | 1kg | M22x0.75 lens mount | Goggles included',
+   icon:'🔋',tag:''},
+  {id:12,series:'DC',name:'DC-40 Mini Laser Cannon',power:'40W',price:129,oldPrice:179,
+   specs:'Range 1m | 80W power consumption | 0.5kg | Silent fan | 45°C protection',
+   icon:'🔬',tag:'SALE'},
+  {id:13,series:'YT',name:'YT-120 Laser Cannon',power:'120W',price:329,oldPrice:0,
+   specs:'Mid-range | Balanced power | Compact design | Professional use',
+   icon:'📏',tag:''},
+  {id:14,series:'LQ',name:'LQ1-1000 Handheld Laser Obstacle Remover',power:'1000W',price:2499,oldPrice:0,
+   specs:'Two Batteries Premium Edition | High-power | Obstacle removal | Industrial',
+   icon:'⚡',tag:'NEW'},
+  {id:15,series:'LQ',name:'LQ1-1000 Handheld Laser (Single Battery Upgrade)',power:'1000W',price:1999,oldPrice:0,
+   specs:'Single Battery Upgrade Edition | High-power | Portable | Industrial grade',
+   icon:'⚡',tag:''},
 ];
 
-let currentProduct = null;
-let currentPrice = 0;
+let cart = [];
 
-function renderProducts() {
+function renderProducts(filter) {
   const grid = document.getElementById('productGrid');
-  grid.innerHTML = products.map(p => `
+  let items = filter ? products.filter(p => p.series === filter) : products;
+  grid.innerHTML = items.map(p => `
     <div class="product-card fade-up">
       <div class="img-wrap">
         <div class="icon">${p.icon}</div>
@@ -269,153 +381,54 @@ function renderProducts() {
         <div class="series">${p.series} SERIES</div>
         <h3>${p.name}</h3>
         <div class="spec">${p.specs}</div>
-        <div class="price">$${p.price} ${p.oldPrice ? `<span class="old">$${p.oldPrice}</span>` : ''}</div>
-        <button class="btn-buy" onclick="buyNow(${p.id})">BUY NOW</button>
+        <div class="price-row">
+          <div class="price">$${p.price} ${p.oldPrice ? `<span class="old">$${p.oldPrice}</span>` : ''}</div>
+          <button class="btn-add" onclick="addToCart(${p.id})">ADD</button>
+        </div>
       </div>
     </div>`).join('');
   setTimeout(observeFade, 100);
 }
 
-function buyNow(id) {
-  currentProduct = products.find(x => x.id === id);
-  if (!currentProduct) return;
-  currentPrice = currentProduct.price;
-
-  document.getElementById('orderSummary').innerHTML = `
-    <div class="row"><span>${currentProduct.name}</span><span>$${currentProduct.price}</span></div>
-    <div class="row" style="font-size:12px;color:#888">Free Shipping</div>
-    <div class="row total"><span>Total</span><span>$${currentProduct.price}</span></div>
-  `;
-
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('show'));
-  document.getElementById('step1').classList.add('show');
-  document.getElementById('checkoutModal').classList.add('show');
-  document.getElementById('modalOverlay').classList.add('show');
-  document.body.style.overflow = 'hidden';
+function filterProducts(series) {
+  renderProducts(series);
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
 }
 
-function goStep2() {
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('show'));
-  document.getElementById('step2').classList.add('show');
-  document.getElementById('orderSummary2').innerHTML = `
-    <div class="row"><span>${currentProduct.name}</span><span>$${currentProduct.price}</span></div>
-    <div class="row total"><span>Total to Pay</span><span>$${currentProduct.price}</span></div>
-  `;
-  document.getElementById('payAmount').textContent = `$${currentProduct.price} USDT`;
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  const ex = cart.find(x => x.id === id);
+  if (ex) ex.qty++; else cart.push({...p, qty:1});
+  updateCart();
 }
 
-function goStep3() {
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('show'));
-  document.getElementById('step3').classList.add('show');
+function updateCart() {
+  const count = cart.reduce((s,i) => s + i.qty, 0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('barCount').textContent = count;
+  document.getElementById('barTotal').textContent = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  document.getElementById('cartBar').classList.toggle('show', count > 0);
 }
 
-function copyAddress() {
-  navigator.clipboard.writeText(USDT_ADDRESS).then(() => {
-    showToast('馃搵 Address copied!');
-  }).catch(() => {
-    // Fallback
-    const ta = document.createElement('textarea');
-    ta.value = USDT_ADDRESS;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast('馃搵 Address copied!');
-  });
+function toggleCart() {
+  const items = cart.map(i => `${i.name} x${i.qty}`).join('\n');
+  const total = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  if (cart.length) alert(`CART:\n${items}\n\nTotal: $${total}`);
+  else alert('Cart is empty');
 }
 
-// Email notification via Formspree
-function notifyOrder(order) {
-    var f = new FormData();
-    f.append('Order ID', order.id);
-    f.append('Product', order.product);
-    f.append('Price', ' {
-  const name = document.getElementById('shipName').value.trim();
-  const email = document.getElementById('shipEmail').value.trim();
-  const phone = document.getElementById('shipPhone').value.trim();
-  const country = document.getElementById('shipCountry').value.trim();
-  const address = document.getElementById('shipAddress').value.trim();
-  const txid = document.getElementById('txid').value.trim();
-
-  if (!name || !email || !phone || !country || !address) {
-    showToast('鈿狅笍 Please fill in all required fields');
-    return;
-  }
-
-  const order = {
-    id: Date.now().toString(36).toUpperCase(),
-    date: new Date().toISOString(),
-    product: currentProduct.name,
-    price: currentPrice,
-    network: NETWORK,
-    usdtAddress: USDT_ADDRESS,
-    txid: txid || 'Pending',
-    customer: { name, email, phone, country, address },
-    notes: document.getElementById('shipNotes').value.trim(),
-    status: 'Pending (awaiting payment confirmation)'
-  };
-
-  // Save to localStorage
-  let orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
-  orders.push(order);
-  localStorage.setItem('laserpro_orders', JSON.stringify(orders));
-
-  // Show confirmation
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('show'));
-  document.getElementById('step4').classList.add('show');
-  document.getElementById('orderSummary3').innerHTML = `
-    <div class="row"><span>Order #</span><span>${order.id}</span></div>
-    <div class="row"><span>Product</span><span>${order.product}</span></div>
-    <div class="row"><span>Total Paid</span><span>$${order.price}</span></div>
-    <div class="row"><span>Email</span><span>${order.customer.email}</span></div>
-  `;
-
-  showToast('鉁?Order submitted successfully!');
+function checkout() {
+  if (!cart.length) return;
+  alert(`✅ Order placed! Total: $${cart.reduce((s,i) => s + i.price * i.qty, 0)}\nThank you for your purchase (demo)`);
+  cart = []; updateCart();
 }
 
-function lookupOrders() {
-  const email = document.getElementById('orderEmail').value.trim();
-  if (!email) { showToast('鈿狅笍 Enter your email'); return; }
-
-  const orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
-  const found = orders.filter(o => o.customer.email.toLowerCase() === email.toLowerCase());
-
-  const container = document.getElementById('orderResults');
-  if (found.length === 0) {
-    container.innerHTML = '<div style="text-align:center;padding:20px;color:#888">No orders found with this email</div>';
-  } else {
-    container.innerHTML = `
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;font-size:13px">
-          <tr style="background:#f5f5f5"><th style="padding:8px 12px;text-align:left">Order</th><th style="padding:8px 12px;text-align:left">Product</th><th style="padding:8px 12px;text-align:left">Amount</th><th style="padding:8px 12px;text-align:left">Status</th></tr>
-          ${found.map(o => `<tr>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.id}</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.product}</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">$${o.price}</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.status}</td>
-          </tr>`).join('')}
-        </table>
-      </div>
-    `;
-  }
-}
-
-function closeModal() {
-  document.getElementById('checkoutModal').classList.remove('show');
-  document.getElementById('modalOverlay').classList.remove('show');
-  document.body.style.overflow = '';
-
-  // Clear form
-  ['shipName','shipEmail','shipPhone','shipCountry','shipAddress','txid','shipNotes'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
+function subscribe() {
+  const input = document.getElementById('emailInput');
+  if (input.value.trim()) {
+    alert(`✅ Subscribed! We'll send updates to ${input.value}`);
+    input.value = '';
+  } else alert('Please enter your email');
 }
 
 function observeFade() {
@@ -425,138 +438,26 @@ function observeFade() {
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 }
 
+// Testimonials
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   observeFade();
-  setTimeout(() => {
-    document.querySelectorAll('.fade-up').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-    });
-  }, 200);
-});
-</script>
-</body>
-</html>
- + order.price);
-    f.append('Name', order.customer.name);
-    f.append('Email', order.customer.email);
-    f.append('Phone', order.customer.phone);
-    f.append('Country', order.customer.country);
-    f.append('Address', order.customer.address);
-    f.append('TXID', order.txid);
-    var x = new XMLHttpRequest();
-    x.open('POST', 'https://formspree.io/f/xkgnzkkv', true);
-    x.setRequestHeader('Accept', 'application/json');
-    x.send(f);
-}
-
-
-function submitOrder() {
-  const name = document.getElementById('shipName').value.trim();
-  const email = document.getElementById('shipEmail').value.trim();
-  const phone = document.getElementById('shipPhone').value.trim();
-  const country = document.getElementById('shipCountry').value.trim();
-  const address = document.getElementById('shipAddress').value.trim();
-  const txid = document.getElementById('txid').value.trim();
-
-  if (!name || !email || !phone || !country || !address) {
-    showToast('鈿狅笍 Please fill in all required fields');
-    return;
-  }
-
-  const order = {
-    id: Date.now().toString(36).toUpperCase(),
-    date: new Date().toISOString(),
-    product: currentProduct.name,
-    price: currentPrice,
-    network: NETWORK,
-    usdtAddress: USDT_ADDRESS,
-    txid: txid || 'Pending',
-    customer: { name, email, phone, country, address },
-    notes: document.getElementById('shipNotes').value.trim(),
-    status: 'Pending (awaiting payment confirmation)'
-  };
-
-  // Save to localStorage
-  let orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
-  orders.push(order);
-  localStorage.setItem('laserpro_orders', JSON.stringify(orders));
-
-  // Show confirmation
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('show'));
-  document.getElementById('step4').classList.add('show');
-  document.getElementById('orderSummary3').innerHTML = `
-    <div class="row"><span>Order #</span><span>${order.id}</span></div>
-    <div class="row"><span>Product</span><span>${order.product}</span></div>
-    <div class="row"><span>Total Paid</span><span>$${order.price}</span></div>
-    <div class="row"><span>Email</span><span>${order.customer.email}</span></div>
-  `;
-
-  showToast('鉁?Order submitted successfully!');
-}
-
-function lookupOrders() {
-  const email = document.getElementById('orderEmail').value.trim();
-  if (!email) { showToast('鈿狅笍 Enter your email'); return; }
-
-  const orders = JSON.parse(localStorage.getItem('laserpro_orders') || '[]');
-  const found = orders.filter(o => o.customer.email.toLowerCase() === email.toLowerCase());
-
-  const container = document.getElementById('orderResults');
-  if (found.length === 0) {
-    container.innerHTML = '<div style="text-align:center;padding:20px;color:#888">No orders found with this email</div>';
-  } else {
-    container.innerHTML = `
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;font-size:13px">
-          <tr style="background:#f5f5f5"><th style="padding:8px 12px;text-align:left">Order</th><th style="padding:8px 12px;text-align:left">Product</th><th style="padding:8px 12px;text-align:left">Amount</th><th style="padding:8px 12px;text-align:left">Status</th></tr>
-          ${found.map(o => `<tr>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.id}</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.product}</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">$${o.price}</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${o.status}</td>
-          </tr>`).join('')}
-        </table>
+  const tGrid = document.getElementById('testimonialGrid');
+  tGrid.innerHTML = [
+    {name:'Michael Turner',country:'United States',text:'The laser cannon delivers excellent beam stability and power output. Truly reliable and highly recommended.',rating:5},
+    {name:'Lars Hoffmann',country:'Germany',text:'Strong engineering quality. The beam precision and control exceeded our expectations for professional use.',rating:5},
+    {name:'Sophie Laurent',country:'France',text:'The laser output is clean and visually striking. Works perfectly for high-impact demonstrations while maintaining safety.',rating:5},
+  ].map(t => `
+    <div class="testimonial-card fade-up">
+      <div class="stars">${'★'.repeat(t.rating)}</div>
+      <p>"${t.text}"</p>
+      <div class="author">
+        <div class="avatar">${t.name[0]}</div>
+        <div><div class="name">${t.name}</div><div class="country">${t.country}</div></div>
       </div>
-    `;
-  }
-}
-
-function closeModal() {
-  document.getElementById('checkoutModal').classList.remove('show');
-  document.getElementById('modalOverlay').classList.remove('show');
-  document.body.style.overflow = '';
-
-  // Clear form
-  ['shipName','shipEmail','shipPhone','shipCountry','shipAddress','txid','shipNotes'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
-
-function observeFade() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold:0.1});
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
-  observeFade();
-  setTimeout(() => {
-    document.querySelectorAll('.fade-up').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-    });
-  }, 200);
+    </div>`).join('');
+  setTimeout(observeFade, 200);
 });
 </script>
 </body>
 </html>
-
