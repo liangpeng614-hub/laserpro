@@ -190,7 +190,35 @@ footer .bottom{
   .stats{grid-template-columns:repeat(2,1fr)}
   .features-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* Enhanced Mobile */
 @media(max-width:768px){
+  nav{padding:12px 20px}
+  nav .menu{display:none}
+  .hero-content h1{font-size:32px}
+  .hero-content p{font-size:14px}
+  .hero-content .btn-group{flex-direction:column;align-items:center}
+  .hero-content .btn-primary,.hero-content .btn-outline{width:100%;max-width:280px;text-align:center}
+  .section{padding:40px 16px}
+  .section-header h2{font-size:26px}
+  .section-header p{font-size:13px}
+  .products{grid-template-columns:1fr}
+  .product-card .img-wrap{height:200px}
+  .product-card .body{padding:16px}
+  .product-card .body .spec{font-size:11px;min-height:40px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat-item{padding:20px}
+  .stat-item .num{font-size:28px}
+  .features-grid{grid-template-columns:1fr}
+  .testimonials{grid-template-columns:1fr}
+  .newsletter{padding:40px 16px}
+  .newsletter .input-row{flex-direction:column}
+  .newsletter .input-row input{width:100%;margin-bottom:8px}
+  .newsletter .input-row button{width:100%}
+  footer{grid-template-columns:1fr;padding:30px 16px 20px}
+  .modal{padding:24px;width:95%}
+  .modal h2{font-size:18px}
+  .modal .usdt-box .address{font-size:10px}
+}
   nav{padding:12px 24px}
   nav .menu{display:none}
   .hero-content h1{font-size:36px}
@@ -381,7 +409,7 @@ function renderProducts(filter) {
       <div class="body">
         <div class="series">${p.series} SERIES</div>
         <h3>${p.name}</h3>
-        <div class="spec">${p.specs}</div>
+        <div class="spec">${p.specs}</div><div class="spec-row"><span class="power">${p.power}</span></div>
         <div class="price-row">
           <div class="price">$${p.price} ${p.oldPrice ? `<span class="old">$${p.oldPrice}</span>` : ''}</div>
           <button class="btn-add" onclick="addToCart(${p.id})">ADD</button>
