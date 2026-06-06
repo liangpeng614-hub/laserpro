@@ -1,578 +1,177 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LASERPRO鈩?- Future Weapons. Legendary Designs.</title>
-<meta name="description" content="LASERPRO鈩?- Premium sci-fi laser guns, cyberpunk collectibles, and futuristic weapon replicas. Shop limited edition space blasters, plasma rifles, and heavy cannons.">
-<meta name="keywords" content="sci-fi collectibles, laser gun, cyberpunk props, cosplay weapons, futuristic toys, space blaster">
-<link rel="canonical" href="https://laserpro.vip/">
+<title>LASERPRO - Future Weapons. Legendary Designs.</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter','Segoe UI',sans-serif;background:#050505;color:#fff;overflow-x:hidden}
-:root{--bg:#050505;--bg2:#0D0D0D;--neon:#00D4FF;--purple:#8A2BE2;--accent:#FF3D00;--text:#fff;--gray:#888}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:#050505}
-::-webkit-scrollbar-thumb{background:var(--neon);border-radius:3px}
-::selection{background:var(--neon);color:#050505}
-a{text-decoration:none;color:inherit}
+body{font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff}
+:root{--neon:#00D4FF;--purple:#8A2BE2;--bg2:#0D0D0D}
 
-/* Nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:16px 60px;background:rgba(5,5,5,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,255,0.1);transition:0.3s}
-nav.scrolled{border-bottom-color:rgba(0,212,255,0.3)}
-nav .logo{font-size:20px;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,#fff 60%,var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-nav .logo span{color:var(--neon);-webkit-text-fill-color:var(--neon)}
-nav .menu{display:flex;gap:28px;list-style:none}
-nav .menu a{color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:1.5px;transition:0.3s;text-transform:uppercase;font-weight:500}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:rgba(5,5,5,0.9);border-bottom:1px solid rgba(0,212,255,0.1)}
+nav .logo{font-size:18px;font-weight:900;letter-spacing:2px;background:linear-gradient(90deg,#fff,var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav .menu{display:flex;gap:20px;list-style:none}
+nav .menu a{color:rgba(255,255,255,0.5);font-size:12px;letter-spacing:1px;transition:0.3s;text-decoration:none}
 nav .menu a:hover{color:var(--neon)}
-nav .actions{display:flex;gap:16px;align-items:center}
-nav .actions .icon{background:none;border:none;color:#fff;font-size:16px;cursor:pointer;opacity:0.6;transition:0.3s}
-nav .actions .icon:hover{opacity:1;color:var(--neon)}
-nav .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none}
-nav .hamburger span{width:24px;height:2px;background:#fff;transition:0.3s}
 
-/* Hero */
-.hero{min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#050505}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,212,255,0.08) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(138,43,226,0.06) 0%, transparent 50%);z-index:0}
-.hero-particles{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-particles span{position:absolute;width:2px;height:2px;background:var(--neon);border-radius:50%;animation:float-particle 6s infinite}
-.hero-particles span:nth-child(1){top:20%;left:10%;animation-delay:0s;opacity:0.3}
-.hero-particles span:nth-child(2){top:40%;left:85%;animation-delay:1s;opacity:0.5;width:3px;height:3px}
-.hero-particles span:nth-child(3){top:70%;left:25%;animation-delay:2s;opacity:0.4}
-.hero-particles span:nth-child(4){top:15%;left:60%;animation-delay:3s;opacity:0.6;width:4px;height:4px}
-.hero-particles span:nth-child(5){top:80%;left:75%;animation-delay:4s;opacity:0.3}
-.hero-particles span:nth-child(6){top:50%;left:50%;animation-delay:0.5s;opacity:0.2;width:1px;height:1px}
-@keyframes float-particle{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.5)}}
-.hero-content{position:relative;z-index:1;max-width:800px;padding:0 60px}
-.hero-content .tag{display:inline-block;padding:6px 16px;border:1px solid var(--neon);color:var(--neon);font-size:10px;letter-spacing:3px;margin-bottom:20px;text-transform:uppercase}
-.hero-content h1{font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:8px}
-.hero-content h1 .gradient{background:linear-gradient(90deg,#fff 30%,var(--neon) 70%,var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-content .sub{font-size:18px;color:rgba(255,255,255,0.5);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px}
-.hero-content p{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:500px;margin-bottom:36px}
-.hero-content .btn-group{display:flex;gap:16px;flex-wrap:wrap}
-.hero-content .btn-primary{padding:16px 40px;background:var(--neon);color:#050505;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:0.3s;text-transform:uppercase}
-.hero-content .btn-primary:hover{box-shadow:0 0 40px rgba(0,212,255,0.3);transform:translateY(-2px)}
-.hero-content .btn-outline{padding:16px 40px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:12px;letter-spacing:2px;cursor:pointer;transition:0.3s;text-transform:uppercase}
-.hero-content .btn-outline:hover{border-color:var(--neon);color:var(--neon)}
-.hero-visual{position:absolute;right:0;top:0;width:50%;height:100%;display:flex;align-items:center;justify-content:center;z-index:1;pointer-events:none}
-.hero-visual .gun-glow{width:400px;height:400px;border-radius:50%;background:radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);animation:pulse-glow 4s ease-in-out infinite}
-@keyframes pulse-glow{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.2);opacity:1}}
+.hero{min-height:80vh;display:flex;align-items:center;padding:0 40px;background:linear-gradient(135deg,#050505 0%,#0D0D0D 100%)}
+.hero h1{font-size:48px;font-weight:900;letter-spacing:-1px;margin-bottom:10px}
+.hero h1 span{background:linear-gradient(90deg,var(--neon),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:rgba(255,255,255,0.4);font-size:14px;margin-bottom:24px;max-width:400px;line-height:1.6}
+.hero .btn{padding:12px 28px;background:var(--neon);color:#050505;border:none;font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;text-decoration:none;display:inline-block;margin-right:10px}
+.hero .btn-out{padding:12px 28px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:12px;letter-spacing:1px;cursor:pointer;text-decoration:none;display:inline-block}
 
-/* Marquee */
-.marquee{overflow:hidden;padding:20px 0;border-top:1px solid rgba(0,212,255,0.05);border-bottom:1px solid rgba(0,212,255,0.05);background:var(--bg2)}
-.marquee .track{display:flex;gap:60px;animation:marquee 30s linear infinite;white-space:nowrap}
-.marquee .track span{font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.3);text-transform:uppercase}
-.marquee .track em{font-style:normal;color:var(--neon)}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.section{padding:60px 40px;max-width:1200px;margin:0 auto}
+.section h2{font-size:28px;font-weight:800;margin-bottom:30px;text-align:center}
+.section h2 span{background:linear-gradient(90deg,#fff,var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section .tag{text-align:center;font-size:10px;letter-spacing:3px;color:var(--neon);margin-bottom:6px}
 
-/* Section */
-.section{padding:70px 60px;max-width:1400px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:60px}
-.section-header .tag{font-size:10px;letter-spacing:4px;color:var(--neon);margin-bottom:8px;text-transform:uppercase}
-.section-header h2{font-size:36px;font-weight:800;letter-spacing:-1px}
-.section-header h2 .gradient{background:linear-gradient(90deg,#fff,var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.section-header p{color:rgba(255,255,255,0.4);font-size:14px;max-width:500px;margin:10px auto 0;line-height:1.7}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat-card{background:var(--bg2);padding:30px;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.03);transition:0.3s}
+.cat-card:hover{border-color:var(--neon)}
+.cat-card h3{font-size:16px;font-weight:700;margin:8px 0 4px}
+.cat-card p{font-size:11px;color:rgba(255,255,255,0.4)}
 
-/* Categories */
-.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
-.cat-card{position:relative;overflow:hidden;height:320px;display:flex;align-items:flex-end;cursor:pointer;background:var(--bg2);transition:0.5s}
-.cat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 50%);z-index:1}
-.cat-card .glow{position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle, var(--neon) 0%, transparent 60%);opacity:0;transition:0.5s}
-.cat-card:hover .glow{opacity:0.1}
-.cat-card:hover{transform:translateY(-4px)}
-.cat-card .content{position:relative;z-index:2;padding:30px;width:100%}
-.cat-card .content .emoji{font-size:36px;margin-bottom:8px;display:block}
-.cat-card .content h3{font-size:18px;font-weight:700;letter-spacing:1px;margin-bottom:4px}
-.cat-card .content p{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px}
-.cat-card .content .count{font-size:11px;color:var(--neon);margin-top:8px;display:inline-block;letter-spacing:1px}
-
-
-/* Products fix */
-.product-card .img-wrap{position:relative;overflow:hidden;height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a0a,#151515)}
-.product-card .img-wrap .product-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:0.5s;z-index:1}
-.product-card:hover .product-img{transform:scale(1.08)}
-.product-card .img-wrap .badge{position:absolute;top:12px;left:12px;z-index:2;padding:4px 12px;font-size:9px;letter-spacing:1px;font-weight:700}
-.product-card .img-wrap .wishlist{position:absolute;top:12px;right:12px;z-index:2}
-
-/* Layout spacing */
-.section{padding:80px 60px}
-.section-header{margin-bottom:40px}
-.products{gap:16px}
-.product-card .body{padding:16px 20px}
-
-/* Hero fix */
-.hero{min-height:90vh}
-.hero-content h1{font-size:56px}
-
-/* Footer spacing */
-footer{padding:50px 60px 20px}
-footer .bottom{padding-top:20px;margin-top:10px}/* Products */
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.product-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.05);overflow:hidden;transition:0.4s;position:relative}
-.product-card:hover{transform:translateY(-8px);border-color:rgba(0,212,255,0.2);box-shadow:0 20px 60px rgba(0,212,255,0.05)}
-.product-card .img-wrap{height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a0a,#151515);position:relative;overflow:hidden}
-.product-card .img-wrap .product-img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:0.5s;z-index:1}
-.product-card:hover .product-img{transform:scale(1.1)}
-.product-card .img-wrap .icon{position:relative;z-index:0}
-.product-card:hover .img-wrap .icon{transform:scale(1.15) rotate(-5deg)}
-.product-card .img-wrap .badge{position:absolute;top:12px;left:12px;padding:4px 12px;font-size:9px;letter-spacing:1px;font-weight:700}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.product-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.05);overflow:hidden;transition:0.3s}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.2)}
+.product-card .img-wrap{height:200px;background:linear-gradient(135deg,#0a0a0a,#151515);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product-card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:0.4s}
+.product-card:hover .img-wrap img{transform:scale(1.1)}
+.product-card .img-wrap .badge{position:absolute;top:8px;left:8px;padding:3px 10px;font-size:9px;font-weight:700;border-radius:3px}
 .product-card .img-wrap .badge.hot{background:var(--neon);color:#050505}
 .product-card .img-wrap .badge.new{background:var(--purple);color:#fff}
-.product-card .img-wrap .badge.sale{background:var(--accent);color:#fff}
-.product-card .img-wrap 
-.product-card .img-wrap .wishlist{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(5,5,5,0.6);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:0.3s;color:#fff;font-size:14px}
-.product-card .img-wrap .wishlist:hover{background:var(--neon);border-color:var(--neon)}
-.product-card .body{padding:20px}
-.product-card .body .series{font-size:10px;letter-spacing:2px;color:var(--neon);margin-bottom:4px;font-weight:600}
-.product-card .body h3{font-size:15px;font-weight:600;margin-bottom:2px}
-.product-card .body .en{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:1px;margin-bottom:8px}
-.product-card .body .spec{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.5;margin-bottom:12px}
-.product-card .body .price{font-size:18px;font-weight:700;letter-spacing:1px}
-.product-card .body .price .old{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:line-through;margin-left:8px;font-weight:400}
-.product-card .body .btn-row{display:flex;gap:8px;margin-top:14px}
-.product-card .body .btn-buy{flex:1;padding:10px;background:var(--neon);color:#050505;border:none;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:0.3s;text-transform:uppercase}
-.product-card .body .btn-buy:hover{box-shadow:0 0 20px rgba(0,212,255,0.2)}
-.product-card .body .btn-view{flex:1;padding:10px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.1);font-size:10px;letter-spacing:1px;cursor:pointer;transition:0.3s;text-transform:uppercase}
-.product-card .body .btn-view:hover{border-color:var(--neon);color:var(--neon)}
+.product-card .img-wrap .badge.sale{background:#FF3D00;color:#fff}
+.product-card .body{padding:14px 16px}
+.product-card .body .series{font-size:10px;color:var(--neon);letter-spacing:1px;margin-bottom:2px}
+.product-card .body h3{font-size:14px;font-weight:600;margin-bottom:2px}
+.product-card .body .en{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.product-card .body .spec{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-card .body .price{font-size:16px;font-weight:700}
+.product-card .body .price .old{font-size:11px;color:rgba(255,255,255,0.3);text-decoration:line-through;margin-left:6px}
+.product-card .body .btn-buy{width:100%;padding:10px;background:var(--neon);color:#050505;border:none;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;margin-top:10px;text-transform:uppercase}
 
-/* Features */
-.features-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(0,212,255,0.05);border-bottom:1px solid rgba(0,212,255,0.05)}
-.feature-item{padding:40px 30px;text-align:center;border-right:1px solid rgba(0,212,255,0.05)}
-.feature-item:last-child{border-right:none}
-.feature-item .icon{font-size:28px;margin-bottom:10px;display:block}
-.feature-item h4{font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:4px}
-.feature-item p{font-size:11px;color:rgba(255,255,255,0.4)}
+footer{background:var(--bg2);padding:40px;max-width:none;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h4{font-size:11px;letter-spacing:1px;margin-bottom:12px}
+footer a{display:block;color:rgba(255,255,255,0.3);font-size:12px;text-decoration:none;margin-bottom:6px;transition:0.3s}
+footer a:hover{color:var(--neon)}
+footer p{color:rgba(255,255,255,0.3);font-size:12px;line-height:1.6;max-width:260px}
+footer .bottom{grid-column:1/-1;text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);margin-top:10px;color:rgba(255,255,255,0.2);font-size:11px}
 
-/* Video Section */
-.video-section{background:var(--bg2);padding:80px 60px;max-width:none;text-align:center}
-.video-section .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:40px auto 0}
-.video-card{aspect-ratio:16/9;background:linear-gradient(135deg,#0a0a0a,#151515);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:0.3s;position:relative;overflow:hidden}
-.video-card:hover{border-color:var(--neon)}
-.video-card .play-btn{width:60px;height:60px;border-radius:50%;border:2px solid var(--neon);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--neon);transition:0.3s}
-.video-card:hover .play-btn{background:var(--neon);color:#050505}
-.video-card .label{position:absolute;bottom:12px;left:12px;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--neon);color:#050505;padding:12px 24px;font-size:12px;font-weight:600;opacity:0;transition:0.4s;pointer-events:none;z-index:9999}
+.toast.show{opacity:1;bottom:30px}
 
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.gallery-item{aspect-ratio:1;background:var(--bg2);border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-size:40px;transition:0.3s;cursor:pointer}
-.gallery-item:hover{border-color:var(--neon);transform:scale(1.02)}
-.gallery-item.large{grid-column:span 2;grid-row:span 2}
-
-/* Reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.review-card{background:var(--bg2);padding:28px;border:1px solid rgba(255,255,255,0.03);transition:0.3s}
-.review-card:hover{border-color:rgba(0,212,255,0.1)}
-.review-card .stars{color:var(--neon);font-size:12px;margin-bottom:10px}
-.review-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:12px;font-style:italic}
-.review-card .author{display:flex;align-items:center;gap:10px}
-.review-card .author .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--neon),var(--purple));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
-.review-card .author .name{font-size:12px;font-weight:600}
-.review-card .author .handle{font-size:10px;color:rgba(255,255,255,0.3)}
-
-/* Newsletter */
-.newsletter{background:linear-gradient(135deg,#0a0a0a 0%,#050505 100%);padding:80px 60px;max-width:none;text-align:center;border-top:1px solid rgba(0,212,255,0.05)}
-.newsletter h2{font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:8px}
-.newsletter p{color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:28px}
-.newsletter .input-row{display:flex;max-width:420px;margin:0 auto}
-.newsletter .input-row input{flex:1;padding:14px 18px;background:var(--bg2);border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:13px;outline:none;transition:0.3s;font-family:inherit}
-.newsletter .input-row input:focus{border-color:var(--neon)}
-.newsletter .input-row button{padding:14px 28px;background:var(--neon);color:#050505;border:none;font-size:11px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:0.3s;text-transform:uppercase;font-family:inherit}
-.newsletter .input-row button:hover{box-shadow:0 0 30px rgba(0,212,255,0.2)}
-
-/* Footer */
-footer{background:var(--bg2);padding:60px 60px 30px;max-width:none;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;border-top:1px solid rgba(0,212,255,0.05)}
-footer .col .logo{font-size:18px;font-weight:900;letter-spacing:2px;margin-bottom:12px;background:linear-gradient(90deg,#fff 60%,var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-footer .col p{color:rgba(255,255,255,0.3);font-size:12px;line-height:1.8;max-width:280px}
-footer .col h4{font-size:11px;font-weight:600;letter-spacing:2px;color:#fff;margin-bottom:16px;text-transform:uppercase}
-footer .col a{display:block;color:rgba(255,255,255,0.3);font-size:12px;margin-bottom:8px;transition:0.3s}
-footer .col a:hover{color:var(--neon)}
-footer .bottom{grid-column:1/-1;text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);margin-top:16px;color:rgba(255,255,255,0.2);font-size:11px;letter-spacing:1px}
-
-/* Toast */
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:9999;background:var(--neon);color:#050505;padding:14px 28px;font-size:12px;font-weight:600;letter-spacing:1px;opacity:0;transition:0.4s;pointer-events:none;white-space:nowrap}
-.toast.show{opacity:1;bottom:40px}
-
-/* Animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0;transform:translateY(30px);transition:0.8s}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-
-/* Responsive */
-@media(max-width:1200px){
-  .products{grid-template-columns:repeat(3,1fr)}
-  .cat-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:1024px){
-  .hero-content h1{font-size:48px}
-  .hero-visual{display:none}
-  .products{grid-template-columns:repeat(2,1fr)}
-  .reviews{grid-template-columns:repeat(2,1fr)}
-  .video-section .video-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(3,1fr)}
-}
 @media(max-width:768px){
-  nav{padding:12px 20px}
   nav .menu{display:none}
-  nav .hamburger{display:flex}
-  .hero-content{padding:0 20px}
-  .hero-content h1{font-size:36px}
-  .hero-content .sub{font-size:14px}
-  .hero-content .btn-group{flex-direction:column}
-  .hero-content .btn-primary,.hero-content .btn-outline{width:100%;text-align:center}
-  .section{padding:60px 20px}
-  .section-header h2{font-size:26px}
-  .products,.reviews{grid-template-columns:1fr}
-  .cat-grid{grid-template-columns:1fr}
-  .cat-card{height:240px}
-  .features-strip{grid-template-columns:1fr 1fr}
-  .feature-item{border-right:none}
-  .video-section{padding:60px 20px}
-  .video-section .video-grid{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .newsletter{padding:60px 20px}
-  .newsletter .input-row{flex-direction:column;gap:8px}
-  .newsletter .input-row input{width:100%}
-  .newsletter .input-row button{width:100%}
-  footer{grid-template-columns:1fr;padding:40px 20px 20px}
+  .hero{padding:0 20px}
+  .hero h1{font-size:32px}
+  .section{padding:40px 20px}
+  .products,.cat-grid{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;padding:30px 20px}
 }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="logo">LASERPRO<span>鈩?/span></div>
+<nav>
+  <div class="logo">LASERPRO</div>
   <ul class="menu">
     <li><a href="#">Home</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#categories">Series</a></li>
-    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="actions">
-    <button class="icon" onclick="showToast('Wishlist coming soon')">鈾?/button>
-    <button class="icon" onclick="showToast('Cart coming soon')">馃洅</button>
-    <button class="hamburger" onclick="showToast('Menu coming soon')"><span></span><span></span><span></span></button>
-  </div>
 </nav>
 
-<!-- Hero -->
 <div class="hero">
-  <div class="hero-particles">
-    <span></span><span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <div class="hero-content">
-    <div class="tag">鈿?2025 COLLECTION</div>
-    <h1>FUTURE WEAPONS<br><span class="gradient">HAVE ARRIVED</span></h1>
-    <div class="sub">Premium Sci-Fi Laser Guns & Collectibles</div>
-    <p>Discover the universe's most advanced weapon replicas. From cyberpunk pistols to plasma rifles 鈥?each piece is crafted for collectors who demand the extraordinary.</p>
-    <div class="btn-group">
-      <a href="#products" class="btn-primary">SHOP COLLECTION</a>
-      <a href="#categories" class="btn-outline">EXPLORE SERIES</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="gun-glow"></div>
+  <div>
+    <h1>Future Weapons<br><span>Have Arrived</span></h1>
+    <p>Premium sci-fi laser guns and collectibles. From cyberpunk pistols to heavy cannons. Built for collectors.</p>
+    <a href="#products" class="btn">SHOP COLLECTION</a>
+    <a href="#categories" class="btn-out">EXPLORE</a>
   </div>
 </div>
 
-<!-- Marquee -->
-<div class="marquee">
-  <div class="track">
-    <span>鉁?FUTURE WEAPONS 路 LEGENDARY DESIGNS</span> <em>鉁?/em>
-    <span>LIMITED EDITION COLLECTIBLES</span> <em>鉁?/em>
-    <span>FREE WORLDWIDE SHIPPING</span> <em>鉁?/em>
-    <span>PAY WITH USDT (TRC-20)</span> <em>鉁?/em>
-    <span>鉁?FUTURE WEAPONS 路 LEGENDARY DESIGNS</span> <em>鉁?/em>
-    <span>LIMITED EDITION COLLECTIBLES</span> <em>鉁?/em>
-    <span>FREE WORLDWIDE SHIPPING</span> <em>鉁?/em>
-    <span>PAY WITH USDT (TRC-20)</span> <em>鉁?/em>
-  </div>
-</div>
-
-<!-- Categories -->
 <div class="section" id="categories">
-  <div class="section-header fade-up">
-    <div class="tag">COLLECTIONS</div>
-    <h2><span class="gradient">Featured Series</span></h2>
-    <p>Four iconic lines, each crafted to bring science fiction to life</p>
-  </div>
+  <div class="tag">COLLECTIONS</div>
+  <h2><span>Featured Series</span></h2>
   <div class="cat-grid">
-    <div class="cat-card fade-up">
-      <div class="glow"></div>
-      <div class="content">
-        <span class="emoji">馃敨</span>
-        <h3>Space Pistols</h3>
-        <p>Future laser handguns</p>
-        <span class="count">4 Models 鈫?/span>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="glow"></div>
-      <div class="content">
-        <span class="emoji">鈿?/span>
-        <h3>Plasma Rifles</h3>
-        <p>Energy rifle replicas</p>
-        <span class="count">3 Models 鈫?/span>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="glow"></div>
-      <div class="content">
-        <span class="emoji">馃殌</span>
-        <h3>Heavy Cannons</h3>
-        <p>High-power laser cannons</p>
-        <span class="count">6 Models 鈫?/span>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="glow"></div>
-      <div class="content">
-        <span class="emoji">馃懢</span>
-        <h3>Collector Edition</h3>
-        <p>Limited premium replicas</p>
-        <span class="count">2 Models 鈫?/span>
-      </div>
-    </div>
+    <div class="cat-card"><h3>Space Pistols</h3><p>4 Models</p></div>
+    <div class="cat-card"><h3>Plasma Rifles</h3><p>3 Models</p></div>
+    <div class="cat-card"><h3>Heavy Cannons</h3><p>6 Models</p></div>
+    <div class="cat-card"><h3>Collector Edition</h3><p>2 Models</p></div>
   </div>
 </div>
 
-<!-- Features -->
-<div class="features-strip">
-  <div class="feature-item">
-    <span class="icon">鈿?/span>
-    <h4>LED Energy Core</h4>
-    <p>Immersive neon lighting effects</p>
-  </div>
-  <div class="feature-item">
-    <span class="icon">馃攰</span>
-    <h4>Sound Effects</h4>
-    <p>Cinematic sci-fi audio</p>
-  </div>
-  <div class="feature-item">
-    <span class="icon">馃攱</span>
-    <h4>Rechargeable</h4>
-    <p>USB-C rechargeable battery</p>
-  </div>
-  <div class="feature-item">
-    <span class="icon">馃弳</span>
-    <h4>Collector Quality</h4>
-    <p>Premium ABS + metal build</p>
-  </div>
-</div>
-
-<!-- Products -->
 <div class="section" id="products">
-  <div class="section-header fade-up">
-    <div class="tag">BEST SELLERS</div>
-    <h2><span class="gradient">Featured Weapons</span></h2>
-    <p>Our most popular sci-fi collectibles and laser systems</p>
-  </div>
+  <div class="tag">BEST SELLERS</div>
+  <h2><span>Featured Weapons</span></h2>
   <div class="products" id="productGrid"></div>
 </div>
 
-<!-- Video Showcase -->
-<div class="video-section">
-  <div class="section-header fade-up">
-    <div class="tag">MEDIA</div>
-    <h2><span class="gradient">Product Showcase</span></h2>
-    <p>See our laser cannons in action</p>
+<footer id="contact">
+  <div>
+    <h4>LASERPRO</h4>
+    <p>Premium sci-fi collectibles. Built for collectors.</p>
   </div>
-  <div class="video-grid">
-    <div class="video-card fade-up">
-      <div class="play-btn">鈻?/div>
-      <div class="label">KX500 Power Test</div>
-    </div>
-    <div class="video-card fade-up">
-      <div class="play-btn">鈻?/div>
-      <div class="label">SQ500 Review</div>
-    </div>
-    <div class="video-card fade-up">
-      <div class="play-btn">鈻?/div>
-      <div class="label">HT-280 Unboxing</div>
-    </div>
-  </div>
-</div>
-
-<!-- Gallery -->
-<div class="section">
-  <div class="section-header fade-up">
-    <div class="tag">GALLERY</div>
-    <h2><span class="gradient">Customer Photos</span></h2>
-    <p>Real photos from our collector community</p>
-  </div>
-  <div class="gallery">
-    <div class="gallery-item large fade-up">馃挜</div>
-    <div class="gallery-item fade-up">馃敨</div>
-    <div class="gallery-item fade-up">鈿?/div>
-    <div class="gallery-item fade-up">馃幆</div>
-    <div class="gallery-item fade-up">馃敟</div>
-  </div>
-</div>
-
-<!-- Reviews -->
-<div class="section" id="reviews">
-  <div class="section-header fade-up">
-    <div class="tag">REVIEWS</div>
-    <h2><span class="gradient">What Collectors Say</span></h2>
-  </div>
-  <div class="reviews">
-    <div class="review-card fade-up">
-      <div class="stars">鈽呪槄鈽呪槄鈽?/div>
-      <p>"Absolutely stunning piece. The LED effects are incredible and the build quality is superb. A must-have for any sci-fi collector."</p>
-      <div class="author">
-        <div class="avatar">MT</div>
-        <div><div class="name">Michael T.</div><div class="handle">@michael_t</div></div>
-      </div>
-    </div>
-    <div class="review-card fade-up">
-      <div class="stars">鈽呪槄鈽呪槄鈽?/div>
-      <p>"The KX500 is a beast. Feels like a real prop from a movie set. Shipping was fast and the packaging was top-notch."</p>
-      <div class="author">
-        <div class="avatar">LH</div>
-        <div><div class="name">Lars H.</div><div class="handle">@lars_h</div></div>
-      </div>
-    </div>
-    <div class="review-card fade-up">
-      <div class="stars">鈽呪槄鈽呪槄鈽?/div>
-      <p>"Incredible detail and craftsmanship. The neon accents really make it pop on display. Highly recommended for serious collectors."</p>
-      <div class="author">
-        <div class="avatar">SL</div>
-        <div><div class="name">Sophie L.</div><div class="handle">@sophie_l</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Newsletter -->
-<div class="newsletter" id="contact">
-  <h2>Join the <span style="color:var(--neon)">LaserPro</span> Legion</h2>
-  <p>Get exclusive access to new releases, limited editions, and collector offers</p>
-  <div class="input-row">
-    <input type="email" placeholder="Enter your email" id="emailInput">
-    <button onclick="subscribe()">SUBSCRIBE</button>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer>
-  <div class="col">
-    <div class="logo">LASERPRO鈩?/div>
-    <p>Premium sci-fi collectibles and futuristic weapon replicas. Built for collectors. Designed for legends.</p>
-  </div>
-  <div class="col">
-    <h4>Shop</h4>
-    <a href="#">Space Pistols</a>
-    <a href="#">Plasma Rifles</a>
-    <a href="#">Heavy Cannons</a>
-    <a href="#">Collector Edition</a>
-  </div>
-  <div class="col">
+  <div>
     <h4>Support</h4>
-    <a href="#">Shipping Info</a>
-    <a href="#">Return Policy</a>
-    <a href="#">Warranty</a>
-    <a href="#">FAQ</a>
+    <a href="#">Shipping</a>
+    <a href="#">Returns</a>
   </div>
-  <div class="col">
-    <h4>Company</h4>
-    <a href="#">About Us</a>
-    <a href="#">Blog</a>
-    <a href="#">Careers</a>
-    <a href="#">Press</a>
-  </div>
-  <div class="col">
+  <div>
     <h4>Contact</h4>
     <a href="mailto:liangpeng614@gmail.com">liangpeng614@gmail.com</a>
     <a href="#">Telegram: @oliviaspun</a>
-    
   </div>
-  <div class="bottom">漏 2025 LASERPRO鈩? All rights reserved. | Pay with USDT (TRC-20)</div>
+  <div class="bottom">2025 LASERPRO. Pay with USDT (TRC-20)</div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
 const products = [
-  {id:1,img:'kx500.jpg',series:'KX',name:'KX500-DIY Laser Cannon',en:'Heavy Beam Cannon',price:1299,oldPrice:1599,specs:'Power: 500W | Range: 80m | Wavelength: 915nm | Battery: DC 46V 10Ah',icon:'💥',tag:'HOT'},
-  {id:2,img:'kx130.jpg',series:'KX',name:'KX130-DIY Laser Cannon',en:'Compact Beam Cannon',price:499,oldPrice:599,specs:'Power: 130W | Range: 10-15m | Wavelength: 915nm',icon:'🔥',tag:'SALE'},
-  {id:3,img:'ht280.jpg',series:'HT',name:'HT-280 Fiber Laser Cannon',en:'Focused Energy Rifle',price:1899,oldPrice:0,specs:'Power: 280W | Output: 1064nm | Fiber Core: 8um',icon:'🎯',tag:'NEW'},
-  {id:4,img:'ht140.jpg',series:'HT',name:'HT-140 Fiber Laser Cannon',en:'Tactical Energy Rifle',price:999,oldPrice:0,specs:'Power: 140W | Fiber Laser | Compact',icon:'🎯',tag:''},
-  {id:5,img:'sq500.jpg',series:'SQ',name:'SQ500-2 DIY Laser Cannon',en:'Dual Cell Blaster',price:1199,oldPrice:1499,specs:'Power: 500W | Range: 80m | Battery: DC 46V 10Ah',icon:'⚡',tag:'HOT'},
-  {id:6,img:'yz130-01.jpg',series:'YZ',name:'YZ130-01 Laser Cannon',en:'Plasma Discharger',price:459,oldPrice:0,specs:'Power: 130W | Range: 15m | Wavelength: 915nm',icon:'⚙️',tag:'SALE'},
-  {id:7,img:'yz130-02.jpg',series:'YZ',name:'YZ130-02 Laser Cannon',en:'Plasma Discharger V2',price:479,oldPrice:0,specs:'Power: 130W | Range: 15m | Wavelength: 974nm',icon:'⚙️',tag:''},
-  {id:8,img:'yz120-02.jpg',series:'YZ',name:'YZ120-02 Laser Cannon',en:'Ion Beam Projector',price:309,oldPrice:0,specs:'Power: 120W | OLED Display | 10x Lens | 515g',icon:'⚙️',tag:'NEW'},
-  {id:9,img:'jgx3-130.jpg',series:'JGX3',name:'JGX3-130 Laser Cannon',en:'Pulse Rifle MK2',price:389,oldPrice:0,specs:'Power: 130W | Range: 10m | 1kg | Dual Battery',icon:'🔋',tag:''},
-  {id:10,img:'',series:'JGX3',name:'JGX3-120 Laser Cannon',en:'Pulse Rifle MK1',price:349,oldPrice:0,specs:'Power: 120W | Range: 10m | 1kg',icon:'🔋',tag:''},
-  {id:11,img:'',series:'DC',name:'DC-40 Mini Laser Cannon',en:'Sidearm Blaster',price:129,oldPrice:179,specs:'Power: 40W | Range: 1m | 0.5kg | USB Charging',icon:'🔬',tag:'SALE'},
-  {id:12,img:'',series:'YZ',name:'YZ-40 Mini Laser Cannon',en:'Holdout Blaster',price:149,oldPrice:0,specs:'Power: 40W | Type-C | 1500mAh x2',icon:'🔬',tag:'SALE'},
-  {id:13,img:'yt120.jpg',series:'YT',name:'YT-120 Laser Cannon',en:'Assault Beam',price:329,oldPrice:0,specs:'Power: 120W | Mid-range | Balanced',icon:'📏',tag:''},
-  {id:14,img:'lq1000-premium.jpg',series:'LQ',name:'LQ1-1000 Obstacle Remover Premium',en:'Titan Cannon Elite',price:2499,oldPrice:0,specs:'Power: 1000W | Dual Battery | Tripod',icon:'⚡',tag:'NEW'},
-  {id:15,img:'lq1000-upgrade.jpg',series:'LQ',name:'LQ1-1000 Obstacle Remover',en:'Titan Cannon',price:1999,oldPrice:0,specs:'Power: 1000W | Single Battery | Tripod',icon:'⚡',tag:''},
+  {id:1,img:'kx500.jpg',series:'KX',name:'KX500-DIY Laser Cannon',en:'Heavy Beam Cannon',price:1299,oldPrice:1599,specs:'500W | 80m range | 915nm | DC 46V 10Ah',tag:'HOT'},
+  {id:2,img:'kx130.jpg',series:'KX',name:'KX130-DIY Laser Cannon',en:'Compact Beam Cannon',price:499,oldPrice:599,specs:'130W | 10-15m | 915nm | DC 16.8V 5Ah',tag:'SALE'},
+  {id:3,img:'ht280.jpg',series:'HT',name:'HT-280 Fiber Laser Cannon',en:'Focused Energy Rifle',price:1899,oldPrice:0,specs:'280W | 1064nm | Fiber Core 8um | Air Cooled',tag:'NEW'},
+  {id:4,img:'ht140.jpg',series:'HT',name:'HT-140 Fiber Laser Cannon',en:'Tactical Energy Rifle',price:999,oldPrice:0,specs:'140W | Fiber Laser | Compact | Professional',tag:''},
+  {id:5,img:'sq500.jpg',series:'SQ',name:'SQ500-2 DIY Laser Cannon',en:'Dual Cell Blaster',price:1199,oldPrice:1499,specs:'500W | 80m | DC 46V 10Ah | 5.5kg',tag:'HOT'},
+  {id:6,img:'yz130-01.jpg',series:'YZ',name:'YZ130-01 Laser Cannon',en:'Plasma Discharger',price:459,oldPrice:0,specs:'130W | 15m | 915nm | DC 16.8V 5Ah',tag:'SALE'},
+  {id:7,img:'yz130-02.jpg',series:'YZ',name:'YZ130-02 Laser Cannon',en:'Plasma Discharger V2',price:479,oldPrice:0,specs:'130W | 15m | 974nm | 5yr Battery',tag:''},
+  {id:8,img:'',series:'YZ',name:'YZ120-02 Laser Cannon',en:'Ion Beam Projector',price:309,oldPrice:0,specs:'120W | OLED | 10x Lens | 515g',tag:'NEW'},
+  {id:9,img:'jgx3-130.jpg',series:'JGX3',name:'JGX3-130 Laser Cannon',en:'Pulse Rifle MK2',price:389,oldPrice:0,specs:'130W | 10m | 1kg | Dual Battery',tag:''},
+  {id:10,img:'',series:'JGX3',name:'JGX3-120 Laser Cannon',en:'Pulse Rifle MK1',price:349,oldPrice:0,specs:'120W | 10m | 1kg | Lens Mount',tag:''},
+  {id:11,img:'yt120.jpg',series:'YT',name:'YT-120 Laser Cannon',en:'Assault Beam',price:329,oldPrice:0,specs:'120W | Mid-range | Fast Charging',tag:''},
+  {id:12,img:'lq1000-premium.jpg',series:'LQ',name:'LQ1-1000 Premium',en:'Titan Cannon Elite',price:2499,oldPrice:0,specs:'1000W | Dual Battery | Tripod | Industrial',tag:'NEW'},
+  {id:13,img:'lq1000-upgrade.jpg',series:'LQ',name:'LQ1-1000 Upgrade',en:'Titan Cannon',price:1999,oldPrice:0,specs:'1000W | Single Battery | Tripod',tag:''},
+  {id:14,img:'',series:'DC',name:'DC-40 Mini Laser Cannon',en:'Sidearm Blaster',price:129,oldPrice:179,specs:'40W | 1m | USB | 0.5kg | Silent',tag:'SALE'},
+  {id:15,img:'',series:'YZ',name:'YZ-40 Mini Laser Cannon',en:'Holdout Blaster',price:149,oldPrice:0,specs:'40W | Type-C | 1500mAh | 2yr Life',tag:'SALE'}
 ];
 
 function renderProducts() {
   const grid = document.getElementById('productGrid');
-  grid.innerHTML = products.map(p => `
-    <div class="product-card fade-up">
-      <div class="img-wrap">
-        ${p.img ? `<img src="${p.img}" class="product-img" alt="${p.name}" />` : `<div class="icon">⚡</div>`}
-        ${p.tag ? `<div class="badge ${p.tag === 'HOT' ? 'hot' : p.tag === 'NEW' ? 'new' : 'sale'}">${p.tag}</div>` : ''}
-        <div class="wishlist" onclick="showToast('Added to wishlist')">鈾?/div>
-      </div>
+  grid.innerHTML = products.map(p => {
+    const t = p.tag ? `<div class="badge ${p.tag.toLowerCase()}">${p.tag}</div>` : '';
+    const img = p.img ? `<img src="${p.img}" alt="${p.name}">` : '<div style="font-size:40px;opacity:0.3">[img]</div>';
+    return `
+    <div class="product-card">
+      <div class="img-wrap">${img}${t}</div>
       <div class="body">
         <div class="series">${p.series} SERIES</div>
         <h3>${p.name}</h3>
         <div class="en">${p.en}</div>
         <div class="spec">${p.specs}</div>
-        <div class="price">$${p.price} ${p.oldPrice ? `<span class="old">$${p.oldPrice}</span>` : ''}</div>
-        <div class="btn-row">
-          <button class="btn-buy" onclick="buyNow(${p.id})">BUY NOW</button>
-          <button class="btn-view" onclick="showToast('Quick view coming soon')">QUICK VIEW</button>
-        </div>
+        <div class="price">$${p.price}${p.oldPrice ? `<span class="old">$${p.oldPrice}</span>` : ''}</div>
+        <button class="btn-buy" onclick="buy(${p.id})">BUY NOW</button>
       </div>
-    </div>`).join('');
-  setTimeout(observeFade, 100);
+    </div>`;
+  }).join('');
 }
 
-function buyNow(id) {
-  showToast('鉁?Order system ready! Contact us to purchase.');
-}
-
-function subscribe() {
-  const input = document.getElementById('emailInput');
-  if (input.value.trim()) {
-    showToast('鉁?Subscribed! Welcome to the LaserPro legion.');
-    input.value = '';
-  } else showToast('Enter your email');
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
-
-function observeFade() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold:0.1});
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-}
-
-// Nav scroll
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
-  observeFade();
-  setTimeout(() => {
-    document.querySelectorAll('.fade-up').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-    });
-  }, 200);
-});
+function buy(id) { showToast('Contact us to purchase. Links in footer.'); }
+function showToast(m) { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
+document.addEventListener('DOMContentLoaded', renderProducts);
 </script>
 </body>
 </html>
