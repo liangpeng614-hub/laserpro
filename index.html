@@ -91,7 +91,9 @@ nav .hamburger span{width:24px;height:2px;background:#fff;transition:0.3s}
 .product-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.05);overflow:hidden;transition:0.4s;position:relative}
 .product-card:hover{transform:translateY(-8px);border-color:rgba(0,212,255,0.2);box-shadow:0 20px 60px rgba(0,212,255,0.05)}
 .product-card .img-wrap{height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a0a,#151515);position:relative;overflow:hidden}
-.product-card .img-wrap .icon{font-size:56px;transition:0.5s;filter:drop-shadow(0 0 15px rgba(0,212,255,0.2))}
+.product-card .img-wrap .product-img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:0.5s;z-index:1}
+.product-card:hover .product-img{transform:scale(1.1)}
+.product-card .img-wrap .icon{position:relative;z-index:0}
 .product-card:hover .img-wrap .icon{transform:scale(1.15) rotate(-5deg)}
 .product-card .img-wrap .badge{position:absolute;top:12px;left:12px;padding:4px 12px;font-size:9px;letter-spacing:1px;font-weight:700}
 .product-card .img-wrap .badge.hot{background:var(--neon);color:#050505}
@@ -494,7 +496,7 @@ function renderProducts() {
   grid.innerHTML = products.map(p => `
     <div class="product-card fade-up">
       <div class="img-wrap">
-        ${p.img ? `<img src="${p.img}" class="product-img" alt="${p.name}" />` : `<div class="icon">${p.icon}</div>`}
+        ${p.img ? `<img src="${p.img}" class="product-img" alt="${p.name}" />` : `<div class="icon">⚡</div>`}
         ${p.tag ? `<div class="badge ${p.tag === 'HOT' ? 'hot' : p.tag === 'NEW' ? 'new' : 'sale'}">${p.tag}</div>` : ''}
         <div class="wishlist" onclick="showToast('Added to wishlist')">鈾?/div>
       </div>
