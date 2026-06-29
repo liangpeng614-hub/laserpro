@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="LASERPRO - Premium sci-fi laser cannons and cyberpunk collectibles. Shop KX500, HT-280, and more high-power laser systems. Worldwide shipping. USDT payment.">
-<meta name="keywords" content="laser cannon, high power laser, handheld laser, KX500, laser gun, sci-fi collectible, cyberpunk weapon, 500W laser, laser for sale, laserpro">
+<meta name="description" content="LASERPRO - High-power laser cannons, sci-fi collectibles, and PRO-D1 2K underwater diving camera mask. Worldwide shipping. USDT payment.">
+<meta name="keywords" content="laser cannon, high power laser, underwater camera mask, diving goggle with camera, 2K diving mask, KX500, laser gun, sci-fi collectible, 500W laser, laserpro, PRO-D1">
 <meta name="robots" content="index, follow">
 <meta name="author" content="LASERPRO">
-<meta property="og:title" content="LASERPRO - Future Weapons. Legendary Designs.">
-<meta property="og:description" content="Premium sci-fi laser cannons and cyberpunk collectibles. Shop high-power laser systems.">
+<meta property="og:title" content="LASERPRO - Laser Cannons & PRO-D1 Underwater Camera Mask">
+<meta property="og:description" content="Premium sci-fi laser cannons and PRO-D1 2K underwater diving camera mask. Shop high-power lasers and dive gear.">
 <meta property="og:url" content="https://laserpro.vip/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LASERPRO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LASERPRO - Future Weapons">
-<meta name="twitter:description" content="Premium sci-fi laser cannons and collectibles.">
+<meta name="twitter:title" content="LASERPRO - Laser Cannons & Diving Gear">
+<meta name="twitter:description" content="High-power laser cannons and PRO-D1 2K underwater camera mask. Shop now.">
 <link rel="canonical" href="https://laserpro.vip/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LASERPRO - High-Power Laser Cannons | Sci-Fi Collectibles | KX500 500W Laser</title>
+<title>LASERPRO - Laser Cannons | Underwater Camera Mask | PRO-D1 2K Diving Goggle</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff}
@@ -168,8 +168,9 @@ const products = [
   {id:12,img:'lq1000-premium.jpg',series:'LQ',name:'LQ1-1000 Premium',en:'Titan Cannon Elite',price:2499,oldPrice:0,specs:'1000W | Dual Battery | Tripod | Industrial',tag:'HOT'},
   {id:13,img:'lq1000-single_main.jpg',series:'LQ',name:'LQ1-1000 Pro Max',en:'Titan Cannon Pro Max',price:2500,oldPrice:2999,specs:'1000W | Single Battery 20000mAh | Extended Range | OLED Display',tag:'NEW'},
   {id:14,img:'lq1000-upgrade.jpg',series:'LQ',name:'LQ1-1000 Upgrade',en:'Titan Cannon',price:1999,oldPrice:0,specs:'1000W | Single Battery | Tripod',tag:''},
-  {id:15,img:'',series:'DC',name:'DC-40 Mini Laser Cannon',en:'Sidearm Blaster',price:129,oldPrice:179,specs:'40W | 1m | USB | 0.5kg | Silent',tag:'SALE'},
-  {id:16,img:'',series:'YZ',name:'YZ-40 Mini Laser Cannon',en:'Holdout Blaster',price:149,oldPrice:0,specs:'40W | Type-C | 1500mAh | 2yr Life',tag:'SALE'}
+  {id:15,img:'diving_main.jpg',series:'PRO-D1',name:'PRO-D1 2K Camera Mask',en:'Underwater Diving Goggle',price:129,oldPrice:189,specs:'2K Video | 60m Waterproof | 16MP Photo | WiFi Share',tag:'NEW'},
+  {id:16,img:'',series:'DC',name:'DC-40 Mini Laser Cannon',en:'Sidearm Blaster',price:129,oldPrice:179,specs:'40W | 1m | USB | 0.5kg | Silent',tag:'SALE'},
+  {id:17,img:'',series:'YZ',name:'YZ-40 Mini Laser Cannon',en:'Holdout Blaster',price:149,oldPrice:0,specs:'40W | Type-C | 1500mAh | 2yr Life',tag:'SALE'}
 ];
 
 function renderProducts() {
@@ -192,7 +193,11 @@ function renderProducts() {
   }).join('');
 }
 
-function buy(id) { showToast('Contact us to purchase. Links in footer.'); }
+function buy(id) {
+  const p = products.find(x=>x.id===id);
+  if (p && p.series === 'PRO-D1') { window.location.href='diving_pro.html'; return; }
+  showToast('Contact us to purchase. Links in footer.');
+}
 function showToast(m) { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
 document.addEventListener('DOMContentLoaded', renderProducts);
 </script>
